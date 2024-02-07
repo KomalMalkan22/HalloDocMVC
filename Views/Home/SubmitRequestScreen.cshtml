@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Submit Request";
+}
+<div id="whoAmI" class="d-flex flex-column">
+    <div class="d-flex m-2">
+        <h2 style="font-weight: 900;">I am a...</h2>
+        <a asp-controller="Home" asp-action="Index" class="btn border border-info backbtn">
+            <strong class="text-info">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+            </strong>
+        </a>
+    </div>
+    <div class="m-2">
+        <a asp-controller="Home" asp-action="CreatePatientRequest" class="btn btn-lg btnPatient">
+            <strong class="fs-4">PATIENT</strong>
+        </a>
+    </div>
+    <div class="m-2">
+        <a asp-controller="Home" asp-action="CreateFamilyFriendRequest" class="btn btn-lg btnFamilyFriend">
+            <strong class="fs-4">FAMILY / FRIEND</strong>
+        </a>
+    </div>
+    <div class="m-2">
+        <a asp-controller="Home" asp-action="CreateConciergeRequest" class="btn btn-lg btnConcierge">
+            <strong class="fs-4">CONCIERGE</strong>
+        </a>
+    </div>
+    <div class="m-2">
+        <a asp-controller="Home" asp-action="CreateBusinessRequest" class="btn btn-lg btnBusinessParteners">
+            <strong class="fs-4">BUSINESS PARTENERS</strong>
+        </a>
+    </div>
+</div>

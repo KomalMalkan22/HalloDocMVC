@@ -1,0 +1,163 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Family / Friend Request";
+}
+<partial name="../Shared/ConfirmationModel.cshtml"/>
+<div class="d-flex flex-column align-self-center m-3">
+    <div class="d-flex flex-column align-self-center m-3">
+    <div class="d-flex justify-content-end pe-2">
+        <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info">
+            <strong class="text-info">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+            </strong>
+        </a>
+    </div>
+    <div class="shadow bg-white rounded m-2 p-2">
+        <!-- Family / Friend Information -->
+        <strong class="fs-5 p-2">Family / Friend Information</strong>
+        <form>
+            <div class="row p-2">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Your First Name">
+                        <label for="floatingInput">Your First Name</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Your Last Name">
+                        <label for="floatingInput">Your Last Name</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
+                    <form class="form-floating mb-3 h-100">
+                        <input type="tel" class="form-control shadow-none" id="phone">
+                    </form>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control shadow-none" id="floatingInput" placeholder="Your Email">
+                        <label for="floatingInput">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Relation with Patient">
+                        <label for="floatingInput">Relation with Patient</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Patient Information -->
+        <strong class="fs-5 p-2">Patient Information</strong>
+        <form>
+            <div class="row p-2">
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control shadow-none" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Enter Brief Details Of Symptoms</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter First Name">
+                        <label for="floatingInput">First Name</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Last Name">
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control shadow-none" id="floatingInput" placeholder="Enter Date of Birth">
+                        <label for="floatingInput">Date of Birth</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Patient Contact Information -->
+        <strong class="fs-5 p-2">Patient Contact Information</strong>
+        <form>
+            <div class="row p-2">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
+                    <form class="form-floating mb-3 h-100">
+                        <input type="tel" class="form-control shadow-none" id="phone1">
+                    </form>
+                </div>
+            </div>
+        </form>
+        <!-- Patient Location -->
+        <strong class="fs-5 p-2">Patient Location</strong>
+        <form>
+            <div class="row p-2">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Street">
+                        <label for="floatingInput">Street</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter City">
+                        <label for="floatingInput">City</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter State">
+                        <label for="floatingInput">State</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Zip Code">
+                        <label for="floatingInput">Zip Code</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Room / Suite">
+                        <label for="floatingInput">Room / Suite (Optional)</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Upload Photo or Document -->
+        <strong class="fs-5 p-2">Upload Photo or Document (Optional)</strong>
+        <form>
+            <div class="row p-2 m-1">
+                <div>
+                    <div class="col-12 border rounded">
+                        <div class="d-flex justify-content-between">
+                            <span id="choosenfile" class="p-3">No file chosen</span>
+                            <button class="bg-info btn btn-lg" onclick="document.getElementById('choosenfile').click()">
+                                <label for="files" class="btn text-white">
+                                    <i class="fa fa-cloud-upload"></i>
+                                    <span class="d-none d-md-inline">Upload</span>
+                                </label>
+                            </button>
+                            <input id="files" type="file" class="d-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-info text-white mx-2">Submit</a>
+            <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
+        </div>
+    </div>
+</div>
+</div>

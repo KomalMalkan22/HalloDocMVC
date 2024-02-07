@@ -1,0 +1,12 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Patient Site";
+}
+
+<div class="d-flex flex-column align-self-center w-50">
+    <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn btn-info text-white mb-4 p-3 fs-5"><strong>Submit a Request</strong></a>
+    <a asp-controller="Home" asp-action="PatientLoginPage" class="btn btn-primary text-white p-3 fs-5"><strong>Registered Patients</strong></a>
+</div>
