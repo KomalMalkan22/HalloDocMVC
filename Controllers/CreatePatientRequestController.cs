@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace HalloDoc.Controllers
 {
-    public class PatientRequest : Controller
+    public class CreatePatientRequestController : Controller
     {
         private readonly HalloDocContext _context;
 
-        public PatientRequest(HalloDocContext context)
+        public CreatePatientRequestController(HalloDocContext context)
         {
             _context = context;
         }

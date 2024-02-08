@@ -121,9 +121,17 @@
 
                 <div class="d-flex justify-content-end mt-3">
                     <button type="submit" class="btn btn-info text-white mx-2">Submit</button>
-                    <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
+                    <a asp-controller="Request" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>

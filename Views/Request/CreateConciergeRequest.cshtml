@@ -33,9 +33,9 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
-                    <form class="form-floating mb-3 h-100">
+                    <div class="form-floating mb-3 h-100">
                         <input type="tel" class="form-control shadow-none" id="phone">
-                    </form>
+                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
@@ -92,9 +92,9 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
-                    <form class="form-floating mb-3 h-100">
+                    <div class="form-floating mb-3 h-100">
                         <input type="tel" class="form-control shadow-none" id="phone1">
-                    </form>
+                    </div>
                 </div>
             </div>
         </form>
@@ -112,8 +112,22 @@
         </form>
         <div class="d-flex justify-content-end">
             <a class="btn btn-info text-white mx-2">Submit</a>
-            <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
+            <a asp-controller="Request" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
         </div>
     </div>
 </div>
 </div>
+
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    const phoneInputField1 = document.querySelector("#phone1");
+    const phoneInput1 = window.intlTelInput(phoneInputField1, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>

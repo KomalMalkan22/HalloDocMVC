@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HalloDoc.DataContext;
 using HalloDoc.DataModels;
+using HalloDoc.Models;
 
 namespace HalloDoc.Controllers
 {
