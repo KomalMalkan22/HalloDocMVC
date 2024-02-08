@@ -17,5 +17,5 @@ public partial class RequestType
     public string Name { get; set; } = null!;
 
     [InverseProperty("RequestType")]
-    public virtual ICollection<Request> Requests { get; } = new List<Request>();
+    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
 }

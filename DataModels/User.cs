@@ -90,5 +90,5 @@ public partial class User
     public virtual Region? Region { get; set; }
 
     [InverseProperty("User")]
-    public virtual ICollection<Request> Requests { get; } = new List<Request>();
+    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
 }

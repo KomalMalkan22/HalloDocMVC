@@ -3,6 +3,8 @@
     ViewData["Title"] = "Create Patient Request";
 }
 
+@model ViewDataPatientRequest
+
 <div class="d-flex flex-column align-self-center m-3">
     <div class="d-flex flex-column align-self-center m-3">
         <div class="d-flex justify-content-end pe-2">
@@ -15,7 +17,8 @@
         <div class="shadow bg-white rounded m-2 p-2">
             <!-- Patient Information -->
             <strong class="fs-5 p-2">Patient Information</strong>
-            <form>
+            <form method="post" asp-controller="PatientRequest" asp-action="Create">
+                
                 <div class="row p-2">
                     <div class="col-12">
                         <div class="form-floating mb-3">
@@ -42,27 +45,27 @@
                         </div>
                     </div>
                 </div>
-            </form>
-            <!-- Patient Contact Information -->
-            <strong class="fs-5 p-2">Patient Contact Information</strong>
-            <form>
+                
+                <!-- Patient Contact Information -->
+                <strong class="fs-5 p-2">Patient Contact Information</strong>
+                
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
+                            <input asp-for="Email" type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6 phone">
-                        <form class="form-floating mb-3 h-100">
+                        <div class="form-floating mb-3 h-100">
                             <input type="tel" class="form-control shadow-none" id="phone">
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </form>
-            <!-- Patient Location -->
-            <strong class="fs-5 p-2">Patient Location</strong>
-            <form>
+                
+                <!-- Patient Location -->
+                <strong class="fs-5 p-2">Patient Location</strong>
+                
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
@@ -95,31 +98,32 @@
                         </div>
                     </div>
                 </div>
-            </form>
-            <!-- Upload Photo or Document -->
-            <strong class="fs-5 p-2">Upload Photo or Document (Optional)</strong>
-            <form>
+                
+                <!-- Upload Photo or Document -->
+                <strong class="fs-5 p-2">Upload Photo or Document (Optional)</strong>
+
                 <div class="row p-2">
                     <div>
                         <div class="col-12 border rounded">
                             <div class="d-flex justify-content-between">
                                 <span id="choosenfile" class="p-3">No file chosen</span>
                                 <button class="bg-info btn btn-lg" onclick="document.getElementById('choosenfile').click()">
-                                    <label for="files" class="btn text-white">
+                                    <lable for="files" class="btn text-white">
                                         <i class="fa fa-cloud-upload"></i>
                                         <span class="d-none d-md-inline">Upload</span>
-                                    </label>
+                                    </lable>
                                 </button>
                                 <input id="files" type="file" class="d-none">
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-info text-white mx-2">Submit</button>
+                    <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
+                </div>
             </form>
-            <div class="d-flex justify-content-end mt-3">
-                <a class="btn btn-info text-white mx-2">Submit</a>
-                <a asp-controller="Home" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
-            </div>
         </div>
     </div>
 </div>

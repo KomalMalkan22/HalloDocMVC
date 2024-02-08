@@ -92,45 +92,45 @@ public partial class Request
     public int? CreatedUserId { get; set; }
 
     [InverseProperty("Request")]
-    public virtual ICollection<BlockRequest> BlockRequests { get; } = new List<BlockRequest>();
+    public virtual ICollection<BlockRequest> BlockRequests { get; set; } = new List<BlockRequest>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<EmailLog> EmailLogs { get; } = new List<EmailLog>();
+    public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     [ForeignKey("PhysicianId")]
     [InverseProperty("Requests")]
     public virtual Physician? Physician { get; set; }
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestBusiness> RequestBusinesses { get; } = new List<RequestBusiness>();
+    public virtual ICollection<RequestBusiness> RequestBusinesses { get; set; } = new List<RequestBusiness>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestClient> RequestClients { get; } = new List<RequestClient>();
+    public virtual ICollection<RequestClient> RequestClients { get; set; } = new List<RequestClient>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestClosed> RequestCloseds { get; } = new List<RequestClosed>();
+    public virtual ICollection<RequestClosed> RequestCloseds { get; set; } = new List<RequestClosed>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestConcierge> RequestConcierges { get; } = new List<RequestConcierge>();
+    public virtual ICollection<RequestConcierge> RequestConcierges { get; set; } = new List<RequestConcierge>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestNote> RequestNotes { get; } = new List<RequestNote>();
+    public virtual ICollection<RequestNote> RequestNotes { get; set; } = new List<RequestNote>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestStatusLog> RequestStatusLogs { get; } = new List<RequestStatusLog>();
+    public virtual ICollection<RequestStatusLog> RequestStatusLogs { get; set; } = new List<RequestStatusLog>();
 
     [ForeignKey("RequestTypeId")]
     [InverseProperty("Requests")]
     public virtual RequestType RequestType { get; set; } = null!;
 
     [InverseProperty("Request")]
-    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; } = new List<RequestWiseFile>();
+    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; set; } = new List<RequestWiseFile>();
 
     [InverseProperty("Request")]
-    public virtual ICollection<Smslog> Smslogs { get; } = new List<Smslog>();
+    public virtual ICollection<Smslog> Smslogs { get; set; } = new List<Smslog>();
 
     [ForeignKey("UserId")]
     [InverseProperty("Requests")]

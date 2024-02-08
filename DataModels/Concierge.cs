@@ -43,5 +43,5 @@ public partial class Concierge
     public virtual Region Region { get; set; } = null!;
 
     [InverseProperty("Concierge")]
-    public virtual ICollection<RequestConcierge> RequestConcierges { get; } = new List<RequestConcierge>();
+    public virtual ICollection<RequestConcierge> RequestConcierges { get; set; } = new List<RequestConcierge>();
 }

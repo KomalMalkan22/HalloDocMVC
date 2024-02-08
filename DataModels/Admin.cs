@@ -63,7 +63,7 @@ public partial class Admin
     public int? RoleId { get; set; }
 
     [InverseProperty("Admin")]
-    public virtual ICollection<AdminRegion> AdminRegions { get; } = new List<AdminRegion>();
+    public virtual ICollection<AdminRegion> AdminRegions { get; set; } = new List<AdminRegion>();
 
     [ForeignKey("AspNetUserId")]
     [InverseProperty("AdminAspNetUsers")]
@@ -74,7 +74,7 @@ public partial class Admin
     public virtual AspNetUser CreatedByNavigation { get; set; } = null!;
 
     [InverseProperty("Admin")]
-    public virtual ICollection<EmailLog> EmailLogs { get; } = new List<EmailLog>();
+    public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
 
     [ForeignKey("ModifiedBy")]
     [InverseProperty("AdminModifiedByNavigations")]
@@ -85,15 +85,15 @@ public partial class Admin
     public virtual Region? Region { get; set; }
 
     [InverseProperty("Admin")]
-    public virtual ICollection<RequestStatusLog> RequestStatusLogs { get; } = new List<RequestStatusLog>();
+    public virtual ICollection<RequestStatusLog> RequestStatusLogs { get; set; } = new List<RequestStatusLog>();
 
     [InverseProperty("Admin")]
-    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; } = new List<RequestWiseFile>();
+    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; set; } = new List<RequestWiseFile>();
 
     [ForeignKey("RoleId")]
     [InverseProperty("Admins")]
     public virtual Role? Role { get; set; }
 
     [InverseProperty("Admin")]
-    public virtual ICollection<Smslog> Smslogs { get; } = new List<Smslog>();
+    public virtual ICollection<Smslog> Smslogs { get; set; } = new List<Smslog>();
 }

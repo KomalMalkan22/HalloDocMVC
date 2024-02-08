@@ -36,17 +36,17 @@ public partial class Role
     public string? Ip { get; set; }
 
     [InverseProperty("Role")]
-    public virtual ICollection<Admin> Admins { get; } = new List<Admin>();
+    public virtual ICollection<Admin> Admins { get; set; } = new List<Admin>();
 
     [InverseProperty("Role")]
-    public virtual ICollection<EmailLog> EmailLogs { get; } = new List<EmailLog>();
+    public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
 
     [InverseProperty("Role")]
-    public virtual ICollection<Physician> Physicians { get; } = new List<Physician>();
+    public virtual ICollection<Physician> Physicians { get; set; } = new List<Physician>();
 
     [InverseProperty("Role")]
-    public virtual ICollection<RoleMenu> RoleMenus { get; } = new List<RoleMenu>();
+    public virtual ICollection<RoleMenu> RoleMenus { get; set; } = new List<RoleMenu>();
 
     [InverseProperty("Role")]
-    public virtual ICollection<Smslog> Smslogs { get; } = new List<Smslog>();
+    public virtual ICollection<Smslog> Smslogs { get; set; } = new List<Smslog>();
 }

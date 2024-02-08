@@ -71,5 +71,5 @@ public partial class Business
     public virtual Region? Region { get; set; }
 
     [InverseProperty("Business")]
-    public virtual ICollection<RequestBusiness> RequestBusinesses { get; } = new List<RequestBusiness>();
+    public virtual ICollection<RequestBusiness> RequestBusinesses { get; set; } = new List<RequestBusiness>();
 }

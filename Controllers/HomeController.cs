@@ -26,32 +26,7 @@ namespace HalloDoc.Controllers
         public IActionResult ResetPassword()
         {
             return View();
-        }
-
-        public IActionResult SubmitRequestScreen()
-        {
-            return View();
-        }
-
-        public IActionResult CreatePatientRequest()
-        {
-            return View();
-        }
-
-        public IActionResult CreateFamilyFriendRequest()
-        {
-            return View();
-        }
-
-        public IActionResult CreateConciergeRequest()
-        {
-            return View();
-        }
-
-        public IActionResult CreateBusinessRequest()
-        {
-            return View();
-        }
+        }        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -55,7 +55,7 @@ public partial class HealthProfessional
     public string? BusinessContact { get; set; }
 
     [InverseProperty("Vendor")]
-    public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     [ForeignKey("Profession")]
     [InverseProperty("HealthProfessionals")]

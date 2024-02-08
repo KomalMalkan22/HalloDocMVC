@@ -16,20 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\pct30\source\repos\HalloDoc
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pct30/source/repos/HalloDoc/Views/Home/CreateBusinessRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVCdXNpbmVzc1JlcXVlc3QuY3NodG1s
+[C:/Users/pct30/source/repos/HalloDoc/Views/AspNetUsers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNwTmV0VXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pct30/source/repos/HalloDoc/Views/Home/CreateConciergeRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVDb25jaWVyZ2VSZXF1ZXN0LmNzaHRtbA==
+[C:/Users/pct30/source/repos/HalloDoc/Views/AspNetUsers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNwTmV0VXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pct30/source/repos/HalloDoc/Views/Home/CreateFamilyFriendRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVGYW1pbHlGcmllbmRSZXF1ZXN0LmNzaHRtbA==
+[C:/Users/pct30/source/repos/HalloDoc/Views/AspNetUsers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNwTmV0VXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pct30/source/repos/HalloDoc/Views/Home/CreatePatientRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVQYXRpZW50UmVxdWVzdC5jc2h0bWw=
+[C:/Users/pct30/source/repos/HalloDoc/Views/AspNetUsers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNwTmV0VXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pct30/source/repos/HalloDoc/Views/AspNetUsers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNwTmV0VXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pct30/source/repos/HalloDoc/Views/Home/Index.cshtml]
@@ -44,8 +48,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pct30/source/repos/HalloDoc/Views/Home/SubmitRequestScreen.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWJtaXRSZXF1ZXN0U2NyZWVuLmNzaHRtbA==
+[C:/Users/pct30/source/repos/HalloDoc/Views/Request/CreateBusinessRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGVCdXNpbmVzc1JlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pct30/source/repos/HalloDoc/Views/Request/CreateConciergeRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGVDb25jaWVyZ2VSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pct30/source/repos/HalloDoc/Views/Request/CreateFamilyFriendRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGVGYW1pbHlGcmllbmRSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pct30/source/repos/HalloDoc/Views/Request/CreatePatientRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGVQYXRpZW50UmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pct30/source/repos/HalloDoc/Views/Request/SubmitRequestScreen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxTdWJtaXRSZXF1ZXN0U2NyZWVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pct30/source/repos/HalloDoc/Views/Shared/ConfirmationModel.cshtml]

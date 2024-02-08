@@ -19,35 +19,35 @@ public partial class Region
     public string? Abbreviation { get; set; }
 
     [InverseProperty("Region")]
-    public virtual ICollection<AdminRegion> AdminRegions { get; } = new List<AdminRegion>();
+    public virtual ICollection<AdminRegion> AdminRegions { get; set; } = new List<AdminRegion>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<Admin> Admins { get; } = new List<Admin>();
+    public virtual ICollection<Admin> Admins { get; set; } = new List<Admin>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<Business> Businesses { get; } = new List<Business>();
+    public virtual ICollection<Business> Businesses { get; set; } = new List<Business>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<Concierge> Concierges { get; } = new List<Concierge>();
+    public virtual ICollection<Concierge> Concierges { get; set; } = new List<Concierge>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<HealthProfessional> HealthProfessionals { get; } = new List<HealthProfessional>();
+    public virtual ICollection<HealthProfessional> HealthProfessionals { get; set; } = new List<HealthProfessional>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<PhysicianRegion> PhysicianRegions { get; } = new List<PhysicianRegion>();
+    public virtual ICollection<PhysicianRegion> PhysicianRegions { get; set; } = new List<PhysicianRegion>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<Physician> Physicians { get; } = new List<Physician>();
+    public virtual ICollection<Physician> Physicians { get; set; } = new List<Physician>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<RequestClient> RequestClients { get; } = new List<RequestClient>();
+    public virtual ICollection<RequestClient> RequestClients { get; set; } = new List<RequestClient>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<ShiftDetailRegion> ShiftDetailRegions { get; } = new List<ShiftDetailRegion>();
+    public virtual ICollection<ShiftDetailRegion> ShiftDetailRegions { get; set; } = new List<ShiftDetailRegion>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<ShiftDetail> ShiftDetails { get; } = new List<ShiftDetail>();
+    public virtual ICollection<ShiftDetail> ShiftDetails { get; set; } = new List<ShiftDetail>();
 
     [InverseProperty("Region")]
-    public virtual ICollection<User> Users { get; } = new List<User>();
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

@@ -58,5 +58,5 @@ public partial class ShiftDetail
     public virtual Shift Shift { get; set; } = null!;
 
     [InverseProperty("ShiftDetail")]
-    public virtual ICollection<ShiftDetailRegion> ShiftDetailRegions { get; } = new List<ShiftDetailRegion>();
+    public virtual ICollection<ShiftDetailRegion> ShiftDetailRegions { get; set; } = new List<ShiftDetailRegion>();
 }
