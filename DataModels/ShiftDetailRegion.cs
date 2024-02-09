@@ -7,25 +7,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("ShiftDetailRegion")]
-public partial class ShiftDetailRegion
+[Table("shiftdetailregion")]
+public partial class Shiftdetailregion
 {
     [Key]
-    public int ShiftDetailRegionId { get; set; }
+    [Column("shiftdetailregionid")]
+    public int Shiftdetailregionid { get; set; }
 
-    [Column("ShiftDetailId ")]
-    public int ShiftDetailId { get; set; }
+    [Column("shiftdetailid")]
+    public int Shiftdetailid { get; set; }
 
-    public int RegionId { get; set; }
+    [Column("regionid")]
+    public int Regionid { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
+    [Column("isdeleted", TypeName = "bit(1)")]
+    public BitArray? Isdeleted { get; set; }
 
-    [ForeignKey("RegionId")]
-    [InverseProperty("ShiftDetailRegions")]
+    [ForeignKey("Regionid")]
+    [InverseProperty("Shiftdetailregions")]
     public virtual Region Region { get; set; } = null!;
 
-    [ForeignKey("ShiftDetailId")]
-    [InverseProperty("ShiftDetailRegions")]
-    public virtual ShiftDetail ShiftDetail { get; set; } = null!;
+    [ForeignKey("Shiftdetailid")]
+    [InverseProperty("Shiftdetailregions")]
+    public virtual Shiftdetail Shiftdetail { get; set; } = null!;
 }

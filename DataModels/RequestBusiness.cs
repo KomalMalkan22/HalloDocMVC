@@ -6,26 +6,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("RequestBusiness")]
-public partial class RequestBusiness
+[Table("requestbusiness")]
+public partial class Requestbusiness
 {
     [Key]
-    public int RequestBusinessId { get; set; }
+    [Column("requestbusinessid")]
+    public int Requestbusinessid { get; set; }
 
-    public int RequestId { get; set; }
+    [Column("requestid")]
+    public int? Requestid { get; set; }
 
-    [Column("BusinessId ")]
-    public int BusinessId { get; set; }
+    [Column("businessid")]
+    public int? Businessid { get; set; }
 
-    [Column("IP ")]
+    [Column("ip")]
     [StringLength(20)]
     public string? Ip { get; set; }
 
-    [ForeignKey("BusinessId")]
-    [InverseProperty("RequestBusinesses")]
-    public virtual Business Business { get; set; } = null!;
+    [ForeignKey("Businessid")]
+    [InverseProperty("Requestbusinesses")]
+    public virtual Business? Business { get; set; }
 
-    [ForeignKey("RequestId")]
-    [InverseProperty("RequestBusinesses")]
-    public virtual Request Request { get; set; } = null!;
+    [ForeignKey("Requestid")]
+    [InverseProperty("Requestbusinesses")]
+    public virtual Request? Request { get; set; }
 }

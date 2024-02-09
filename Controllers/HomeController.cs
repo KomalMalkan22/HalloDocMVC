@@ -12,7 +12,6 @@ namespace HalloDoc.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();

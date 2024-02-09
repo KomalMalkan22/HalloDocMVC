@@ -6,12 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-public partial class AspNetRole
+[Table("aspnetroles")]
+public partial class Aspnetrole
 {
     [Key]
+    [Column("id")]
     [StringLength(128)]
     public string Id { get; set; } = null!;
 
+    [Column("name")]
     [StringLength(256)]
     public string Name { get; set; } = null!;
+
+    [ForeignKey("Roleid")]
+    [InverseProperty("Roles")]
+    public virtual ICollection<Aspnetuser> Users { get; set; } = new List<Aspnetuser>();
 }

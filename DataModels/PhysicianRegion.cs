@@ -6,23 +6,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("PhysicianRegion")]
-public partial class PhysicianRegion
+[Table("physicianregion")]
+public partial class Physicianregion
 {
     [Key]
-    [Column("PhysicianRegionId ")]
-    public int PhysicianRegionId { get; set; }
+    [Column("physicianregionid")]
+    public int Physicianregionid { get; set; }
 
-    public int PhysicianId { get; set; }
+    [Column("physicianid")]
+    public int Physicianid { get; set; }
 
-    [Column("RegionId ")]
-    public int RegionId { get; set; }
+    [Column("regionid")]
+    public int Regionid { get; set; }
 
-    [ForeignKey("PhysicianId")]
-    [InverseProperty("PhysicianRegions")]
+    [ForeignKey("Physicianid")]
+    [InverseProperty("Physicianregions")]
     public virtual Physician Physician { get; set; } = null!;
 
-    [ForeignKey("RegionId")]
-    [InverseProperty("PhysicianRegions")]
+    [ForeignKey("Regionid")]
+    [InverseProperty("Physicianregions")]
     public virtual Region Region { get; set; } = null!;
 }

@@ -18,71 +18,67 @@ public partial class HalloDocContext : DbContext
 
     public virtual DbSet<Admin> Admins { get; set; }
 
-    public virtual DbSet<AdminRegion> AdminRegions { get; set; }
+    public virtual DbSet<Adminregion> Adminregions { get; set; }
 
-    public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+    public virtual DbSet<Aspnetrole> Aspnetroles { get; set; }
 
-    public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+    public virtual DbSet<Aspnetuser> Aspnetusers { get; set; }
 
-    public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
-
-    public virtual DbSet<BlockRequest> BlockRequests { get; set; }
+    public virtual DbSet<Blockrequest> Blockrequests { get; set; }
 
     public virtual DbSet<Business> Businesses { get; set; }
 
-    public virtual DbSet<BusinessType> BusinessTypes { get; set; }
-
-    public virtual DbSet<CaseTag> CaseTags { get; set; }
+    public virtual DbSet<Casetag> Casetags { get; set; }
 
     public virtual DbSet<Concierge> Concierges { get; set; }
 
-    public virtual DbSet<EmailLog> EmailLogs { get; set; }
+    public virtual DbSet<Emaillog> Emaillogs { get; set; }
 
-    public virtual DbSet<HealthProfessional> HealthProfessionals { get; set; }
+    public virtual DbSet<Healthprofessional> Healthprofessionals { get; set; }
 
-    public virtual DbSet<HealthProfessionalType> HealthProfessionalTypes { get; set; }
+    public virtual DbSet<Healthprofessionaltype> Healthprofessionaltypes { get; set; }
 
     public virtual DbSet<Menu> Menus { get; set; }
 
-    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+    public virtual DbSet<Orderdetail> Orderdetails { get; set; }
 
     public virtual DbSet<Physician> Physicians { get; set; }
 
-    public virtual DbSet<PhysicianLocation> PhysicianLocations { get; set; }
+    public virtual DbSet<Physicianlocation> Physicianlocations { get; set; }
 
-    public virtual DbSet<PhysicianNotification> PhysicianNotifications { get; set; }
+    public virtual DbSet<Physiciannotification> Physiciannotifications { get; set; }
 
-    public virtual DbSet<PhysicianRegion> PhysicianRegions { get; set; }
+    public virtual DbSet<Physicianregion> Physicianregions { get; set; }
 
     public virtual DbSet<Region> Regions { get; set; }
 
     public virtual DbSet<Request> Requests { get; set; }
 
-    public virtual DbSet<RequestBusiness> RequestBusinesses { get; set; }
+    public virtual DbSet<Requestbusiness> Requestbusinesses { get; set; }
 
-    public virtual DbSet<RequestClient> RequestClients { get; set; }
+    public virtual DbSet<Requestclient> Requestclients { get; set; }
 
-    public virtual DbSet<RequestClosed> RequestCloseds { get; set; }
+    public virtual DbSet<Requestclosed> Requestcloseds { get; set; }
 
-    public virtual DbSet<RequestConcierge> RequestConcierges { get; set; }
+    public virtual DbSet<Requestconcierge> Requestconcierges { get; set; }
 
-    public virtual DbSet<RequestNote> RequestNotes { get; set; }
+    public virtual DbSet<Requestnote> Requestnotes { get; set; }
 
-    public virtual DbSet<RequestStatusLog> RequestStatusLogs { get; set; }
+    public virtual DbSet<Requeststatuslog> Requeststatuslogs { get; set; }
 
-    public virtual DbSet<RequestType> RequestTypes { get; set; }
+    public virtual DbSet<Requesttype> Requesttypes { get; set; }
 
-    public virtual DbSet<RequestWiseFile> RequestWiseFiles { get; set; }
+    public virtual DbSet<Requestwisefile> Requestwisefiles { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
-    public virtual DbSet<RoleMenu> RoleMenus { get; set; }
+    public virtual DbSet<Rolemenu> Rolemenus { get; set; }
 
     public virtual DbSet<Shift> Shifts { get; set; }
 
-    public virtual DbSet<ShiftDetail> ShiftDetails { get; set; }
+    public virtual DbSet<Shiftdetail> Shiftdetails { get; set; }
 
-    public virtual DbSet<ShiftDetailRegion> ShiftDetailRegions { get; set; }
+    public virtual DbSet<Shiftdetailregion> Shiftdetailregions { get; set; }
 
     public virtual DbSet<Smslog> Smslogs { get; set; }
 
@@ -96,432 +92,327 @@ public partial class HalloDocContext : DbContext
     {
         modelBuilder.Entity<Admin>(entity =>
         {
-            entity.HasKey(e => e.AdminId).HasName("Admin_pkey");
-
-            entity.Property(e => e.AdminId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.AspNetUser).WithMany(p => p.AdminAspNetUsers)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("AspNetUserId");
-
-            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.AdminCreatedByNavigations)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Admin_CreatedBy_fkey");
-
-            entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.AdminModifiedByNavigations).HasConstraintName("Admin_ModifiedBy_fkey");
-
-            entity.HasOne(d => d.Region).WithMany(p => p.Admins).HasConstraintName("RegionId");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Admins).HasConstraintName("Admin_RoleId_fkey");
+            entity.HasKey(e => e.Adminid).HasName("admin_pkey");
         });
 
-        modelBuilder.Entity<AdminRegion>(entity =>
+        modelBuilder.Entity<Adminregion>(entity =>
         {
-            entity.HasKey(e => e.AdminRegionId).HasName("AdminRegion_pkey");
+            entity.HasKey(e => e.Adminregionid).HasName("adminregion_pkey");
 
-            entity.Property(e => e.AdminRegionId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Admin).WithMany(p => p.AdminRegions)
+            entity.HasOne(d => d.Admin).WithMany(p => p.Adminregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("AdminId");
+                .HasConstraintName("adminregion_adminid_fkey");
 
-            entity.HasOne(d => d.Region).WithMany(p => p.AdminRegions)
+            entity.HasOne(d => d.Region).WithMany(p => p.Adminregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RegionId");
+                .HasConstraintName("adminregion_regionid_fkey");
         });
 
-        modelBuilder.Entity<AspNetRole>(entity =>
+        modelBuilder.Entity<Aspnetrole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("AspNetRoles_pkey");
+            entity.HasKey(e => e.Id).HasName("aspnetroles_pkey");
         });
 
-        modelBuilder.Entity<AspNetUser>(entity =>
+        modelBuilder.Entity<Aspnetuser>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("AspNetUsers_pkey");
+            entity.HasKey(e => e.Id).HasName("aspnetusers_pkey");
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Aspnetuserrole",
+                    r => r.HasOne<Aspnetrole>().WithMany()
+                        .HasForeignKey("Roleid")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("aspnetuserroles_roleid_fkey"),
+                    l => l.HasOne<Aspnetuser>().WithMany()
+                        .HasForeignKey("Userid")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("aspnetuserroles_userid_fkey"),
+                    j =>
+                    {
+                        j.HasKey("Userid", "Roleid").HasName("aspnetuserroles_pkey");
+                        j.ToTable("aspnetuserroles");
+                        j.IndexerProperty<string>("Userid")
+                            .HasMaxLength(128)
+                            .HasColumnName("userid");
+                        j.IndexerProperty<string>("Roleid")
+                            .HasMaxLength(128)
+                            .HasColumnName("roleid");
+                    });
         });
 
-        modelBuilder.Entity<AspNetUserRole>(entity =>
+        modelBuilder.Entity<Blockrequest>(entity =>
         {
-            entity.HasKey(e => new { e.UserId, e.RoleId }).HasName("AspNetUserRoles_pkey");
-
-            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserRoles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("AspNetUsers");
-        });
-
-        modelBuilder.Entity<BlockRequest>(entity =>
-        {
-            entity.HasKey(e => e.BlockRequestId).HasName("BlockRequests_pkey");
-
-            entity.Property(e => e.BlockRequestId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Request).WithMany(p => p.BlockRequests)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestId");
+            entity.HasKey(e => e.Blockrequestid).HasName("blockrequests_pkey");
         });
 
         modelBuilder.Entity<Business>(entity =>
         {
-            entity.HasKey(e => e.BusinessId).HasName("Business_pkey");
+            entity.HasKey(e => e.Businessid).HasName("business_pkey");
 
-            entity.Property(e => e.BusinessId).ValueGeneratedNever();
+            entity.HasOne(d => d.CreatedbyNavigation).WithMany(p => p.BusinessCreatedbyNavigations).HasConstraintName("business_createdby_fkey");
 
-            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.BusinessCreatedByNavigations)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Business_CreatedBy_fkey");
-
-            entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.BusinessModifiedByNavigations).HasConstraintName("Business_ModifiedBy_fkey");
-
-            entity.HasOne(d => d.Region).WithMany(p => p.Businesses).HasConstraintName("RegionId");
+            entity.HasOne(d => d.ModifiedbyNavigation).WithMany(p => p.BusinessModifiedbyNavigations).HasConstraintName("business_modifiedby_fkey");
         });
 
-        modelBuilder.Entity<BusinessType>(entity =>
+        modelBuilder.Entity<Casetag>(entity =>
         {
-            entity.HasKey(e => e.BusinessTypeId).HasName("BusinessType_pkey");
-        });
-
-        modelBuilder.Entity<CaseTag>(entity =>
-        {
-            entity.HasKey(e => e.CaseTagId).HasName("CaseTag_pkey");
-
-            entity.Property(e => e.CaseTagId).ValueGeneratedNever();
+            entity.HasKey(e => e.Casetagid).HasName("casetag_pkey");
         });
 
         modelBuilder.Entity<Concierge>(entity =>
         {
-            entity.HasKey(e => e.ConciergeId).HasName("Concierge_pkey");
-
-            entity.Property(e => e.ConciergeId).ValueGeneratedNever();
+            entity.HasKey(e => e.Conciergeid).HasName("concierge_pkey");
 
             entity.HasOne(d => d.Region).WithMany(p => p.Concierges)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RegionId");
+                .HasConstraintName("concierge_regionid_fkey");
         });
 
-        modelBuilder.Entity<EmailLog>(entity =>
+        modelBuilder.Entity<Emaillog>(entity =>
         {
-            entity.HasKey(e => e.EmailLogId).HasName("EmailLog_pkey");
-
-            entity.HasOne(d => d.Admin).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_AdminId_fkey");
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_PhysicianId_fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RequestId_fkey");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RoleId _fkey");
+            entity.HasKey(e => e.Emaillogid).HasName("emaillog_pkey");
         });
 
-        modelBuilder.Entity<HealthProfessional>(entity =>
+        modelBuilder.Entity<Healthprofessional>(entity =>
         {
-            entity.HasKey(e => e.VendorId).HasName("HealthProfessionals_pkey");
+            entity.HasKey(e => e.Vendorid).HasName("healthprofessionals_pkey");
 
-            entity.Property(e => e.VendorId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.ProfessionNavigation).WithMany(p => p.HealthProfessionals).HasConstraintName("HealthProfessionals_Profession_fkey");
-
-            entity.HasOne(d => d.Region).WithMany(p => p.HealthProfessionals).HasConstraintName("HealthProfessionals_RegionId_fkey");
+            entity.HasOne(d => d.ProfessionNavigation).WithMany(p => p.Healthprofessionals).HasConstraintName("healthprofessionals_profession_fkey");
         });
 
-        modelBuilder.Entity<HealthProfessionalType>(entity =>
+        modelBuilder.Entity<Healthprofessionaltype>(entity =>
         {
-            entity.HasKey(e => e.HealthProfessionalId).HasName("HealthProfessionalType_pkey");
+            entity.HasKey(e => e.Healthprofessionalid).HasName("healthprofessionaltype_pkey");
 
-            entity.Property(e => e.HealthProfessionalId).ValueGeneratedNever();
+            entity.Property(e => e.Createddate).HasDefaultValueSql("CURRENT_TIMESTAMP");
         });
 
         modelBuilder.Entity<Menu>(entity =>
         {
-            entity.HasKey(e => e.MenuId).HasName("Menu_pkey");
-
-            entity.Property(e => e.MenuId).ValueGeneratedNever();
+            entity.HasKey(e => e.Menuid).HasName("menu_pkey");
         });
 
-        modelBuilder.Entity<OrderDetail>(entity =>
+        modelBuilder.Entity<Orderdetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("OrderDetails_pkey");
-
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Request).WithMany(p => p.OrderDetails).HasConstraintName("OrderDetails_RequestId_fkey");
-
-            entity.HasOne(d => d.Vendor).WithMany(p => p.OrderDetails).HasConstraintName("OrderDetails_VendorId_fkey");
+            entity.HasKey(e => e.Id).HasName("orderdetails_pkey");
         });
 
         modelBuilder.Entity<Physician>(entity =>
         {
-            entity.HasKey(e => e.PhysicianId).HasName("Physician_pkey");
+            entity.HasKey(e => e.Physicianid).HasName("physician_pkey");
 
-            entity.Property(e => e.PhysicianId).ValueGeneratedNever();
+            entity.HasOne(d => d.Aspnetuser).WithMany(p => p.PhysicianAspnetusers).HasConstraintName("physician_aspnetuserid_fkey");
 
-            entity.HasOne(d => d.AspNetUser).WithMany(p => p.PhysicianAspNetUsers).HasConstraintName("AspNetUserId");
-
-            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.PhysicianCreatedByNavigations)
+            entity.HasOne(d => d.CreatedbyNavigation).WithMany(p => p.PhysicianCreatedbyNavigations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Physician_CreatedBy_fkey");
+                .HasConstraintName("physician_createdby_fkey");
 
-            entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.PhysicianModifiedByNavigations).HasConstraintName("Physician_ModifiedBy_fkey");
+            entity.HasOne(d => d.ModifiedbyNavigation).WithMany(p => p.PhysicianModifiedbyNavigations).HasConstraintName("physician_modifiedby_fkey");
 
-            entity.HasOne(d => d.Region).WithMany(p => p.Physicians).HasConstraintName("RegionId");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Physicians).HasConstraintName("Physician_RoleId_fkey");
+            entity.HasOne(d => d.Region).WithMany(p => p.Physicians).HasConstraintName("physician_regionid_fkey");
         });
 
-        modelBuilder.Entity<PhysicianLocation>(entity =>
+        modelBuilder.Entity<Physicianlocation>(entity =>
         {
-            entity.HasKey(e => e.LocationId).HasName("PhysicianLocation_pkey");
+            entity.HasKey(e => e.Locationid).HasName("physicianlocation_pkey");
 
-            entity.Property(e => e.LocationId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianLocations)
+            entity.HasOne(d => d.Physician).WithMany(p => p.Physicianlocations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PhysicianLocation_PhysicianId_fkey");
+                .HasConstraintName("physicianlocation_physicianid_fkey");
         });
 
-        modelBuilder.Entity<PhysicianNotification>(entity =>
+        modelBuilder.Entity<Physiciannotification>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PhysicianNotification_pkey");
+            entity.HasKey(e => e.Id).HasName("physiciannotification_pkey");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianNotifications)
+            entity.HasOne(d => d.Physician).WithMany(p => p.Physiciannotifications)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PhysicianNotification_PhysicianId_fkey");
+                .HasConstraintName("physiciannotification_physicianid_fkey");
         });
 
-        modelBuilder.Entity<PhysicianRegion>(entity =>
+        modelBuilder.Entity<Physicianregion>(entity =>
         {
-            entity.HasKey(e => e.PhysicianRegionId).HasName("PhysicianRegion_pkey");
+            entity.HasKey(e => e.Physicianregionid).HasName("physicianregion_pkey");
 
-            entity.Property(e => e.PhysicianRegionId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianRegions)
+            entity.HasOne(d => d.Physician).WithMany(p => p.Physicianregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PhysicianRegion_PhysicianId_fkey");
+                .HasConstraintName("physicianregion_physicianid_fkey");
 
-            entity.HasOne(d => d.Region).WithMany(p => p.PhysicianRegions)
+            entity.HasOne(d => d.Region).WithMany(p => p.Physicianregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PhysicianRegion_RegionId _fkey");
+                .HasConstraintName("physicianregion_regionid_fkey");
         });
 
         modelBuilder.Entity<Region>(entity =>
         {
-            entity.HasKey(e => e.RegionId).HasName("Region_pkey");
-
-            entity.Property(e => e.RegionId).ValueGeneratedNever();
+            entity.HasKey(e => e.Regionid).HasName("region_pkey");
         });
 
         modelBuilder.Entity<Request>(entity =>
         {
-            entity.HasKey(e => e.RequestId).HasName("Request_pkey");
+            entity.HasKey(e => e.Requestid).HasName("request_pkey");
 
-            entity.Property(e => e.RequestId).ValueGeneratedNever();
+            entity.HasOne(d => d.Physician).WithMany(p => p.Requests).HasConstraintName("request_physicianid_fkey");
 
-            entity.HasOne(d => d.Physician).WithMany(p => p.Requests).HasConstraintName("Request_PhysicianId _fkey");
-
-            entity.HasOne(d => d.RequestType).WithMany(p => p.Requests)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Request_RequestTypeId _fkey");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Requests).HasConstraintName("Request_UserId_fkey");
+            entity.HasOne(d => d.User).WithMany(p => p.Requests).HasConstraintName("request_userid_fkey");
         });
 
-        modelBuilder.Entity<RequestBusiness>(entity =>
+        modelBuilder.Entity<Requestbusiness>(entity =>
         {
-            entity.HasKey(e => e.RequestBusinessId).HasName("RequestBusiness_pkey");
+            entity.HasKey(e => e.Requestbusinessid).HasName("requestbusiness_pkey");
 
-            entity.Property(e => e.RequestBusinessId).ValueGeneratedNever();
+            entity.HasOne(d => d.Business).WithMany(p => p.Requestbusinesses).HasConstraintName("requestbusiness_businessid_fkey");
 
-            entity.HasOne(d => d.Business).WithMany(p => p.RequestBusinesses)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestBusiness_BusinessId _fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestBusinesses)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestBusiness_RequestId_fkey");
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestbusinesses).HasConstraintName("requestbusiness_requestid_fkey");
         });
 
-        modelBuilder.Entity<RequestClient>(entity =>
+        modelBuilder.Entity<Requestclient>(entity =>
         {
-            entity.HasKey(e => e.RequestClientId).HasName("RequestClient_pkey");
+            entity.HasKey(e => e.Requestclientid).HasName("requestclient_pkey");
 
-            entity.Property(e => e.RequestClientId).ValueGeneratedNever();
+            entity.HasOne(d => d.Region).WithMany(p => p.Requestclients).HasConstraintName("requestclient_regionid_fkey");
 
-            entity.HasOne(d => d.Region).WithMany(p => p.RequestClients).HasConstraintName("RequestClient_RegionId _fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestClients)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestclients)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Request");
+                .HasConstraintName("requestclient_requestid_fkey");
         });
 
-        modelBuilder.Entity<RequestClosed>(entity =>
+        modelBuilder.Entity<Requestclosed>(entity =>
         {
-            entity.HasKey(e => e.RequestClosedId).HasName("RequestClosed_pkey");
+            entity.HasKey(e => e.Requestclosedid).HasName("requestclosed_pkey");
 
-            entity.Property(e => e.RequestClosedId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestCloseds)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestcloseds)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestClosed_RequestId_fkey");
+                .HasConstraintName("requestclosed_requestid_fkey");
 
-            entity.HasOne(d => d.RequestStatusLog).WithMany(p => p.RequestCloseds)
+            entity.HasOne(d => d.Requeststatuslog).WithMany(p => p.Requestcloseds)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestClosed_RequestStatusLogId_fkey");
+                .HasConstraintName("requestclosed_requeststatuslogid_fkey");
         });
 
-        modelBuilder.Entity<RequestConcierge>(entity =>
+        modelBuilder.Entity<Requestconcierge>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("RequestConcierge_pkey");
+            entity.HasKey(e => e.Id).HasName("requestconcierge_pkey");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Concierge).WithMany(p => p.RequestConcierges)
+            entity.HasOne(d => d.Concierge).WithMany(p => p.Requestconcierges)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestConcierge_ConciergeId_fkey");
+                .HasConstraintName("requestconcierge_conciergeid_fkey");
 
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestConcierges)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestconcierges)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestConcierge_RequestId_fkey");
+                .HasConstraintName("requestconcierge_requestid_fkey");
         });
 
-        modelBuilder.Entity<RequestNote>(entity =>
+        modelBuilder.Entity<Requestnote>(entity =>
         {
-            entity.HasKey(e => e.RequestNotesId).HasName("RequestNotes_pkey");
+            entity.HasKey(e => e.Requestnotesid).HasName("requestnotes_pkey");
 
-            entity.Property(e => e.RequestNotesId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestNotes)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestnotes)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Request");
+                .HasConstraintName("requestnotes_requestid_fkey");
         });
 
-        modelBuilder.Entity<RequestStatusLog>(entity =>
+        modelBuilder.Entity<Requeststatuslog>(entity =>
         {
-            entity.HasKey(e => e.RequestStatusLogId).HasName("RequestStatusLog_pkey");
+            entity.HasKey(e => e.Requeststatuslogid).HasName("requeststatuslog_pkey");
 
-            entity.Property(e => e.RequestStatusLogId).ValueGeneratedNever();
+            entity.HasOne(d => d.Admin).WithMany(p => p.Requeststatuslogs).HasConstraintName("requeststatuslog_adminid_fkey");
 
-            entity.HasOne(d => d.Admin).WithMany(p => p.RequestStatusLogs).HasConstraintName("RequestStatusLog_AdminId _fkey");
+            entity.HasOne(d => d.Physician).WithMany(p => p.RequeststatuslogPhysicians).HasConstraintName("requeststatuslog_physicianid_fkey");
 
-            entity.HasOne(d => d.Physician).WithMany(p => p.RequestStatusLogPhysicians).HasConstraintName("RequestStatusLog_PhysicianId_fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestStatusLogs)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requeststatuslogs)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestStatusLog_RequestId_fkey");
+                .HasConstraintName("requeststatuslog_requestid_fkey");
 
-            entity.HasOne(d => d.TransToPhysician).WithMany(p => p.RequestStatusLogTransToPhysicians).HasConstraintName("RequestStatusLog_TransToPhysicianId_fkey");
+            entity.HasOne(d => d.Transtophysician).WithMany(p => p.RequeststatuslogTranstophysicians).HasConstraintName("requeststatuslog_transtophysicianid_fkey");
         });
 
-        modelBuilder.Entity<RequestType>(entity =>
+        modelBuilder.Entity<Requesttype>(entity =>
         {
-            entity.HasKey(e => e.RequestTypeId).HasName("RequestType_pkey");
-
-            entity.Property(e => e.RequestTypeId).ValueGeneratedNever();
+            entity.HasKey(e => e.Requesttypeid).HasName("requesttype_pkey");
         });
 
-        modelBuilder.Entity<RequestWiseFile>(entity =>
+        modelBuilder.Entity<Requestwisefile>(entity =>
         {
-            entity.HasKey(e => e.RequestWiseFileId).HasName("RequestWiseFile_pkey");
+            entity.HasKey(e => e.Requestwisefileid).HasName("requestwisefile_pkey");
 
-            entity.Property(e => e.RequestWiseFileId).ValueGeneratedNever();
+            entity.HasOne(d => d.Admin).WithMany(p => p.Requestwisefiles).HasConstraintName("requestwisefile_adminid_fkey");
 
-            entity.HasOne(d => d.Admin).WithMany(p => p.RequestWiseFiles).HasConstraintName("RequestWiseFile_AdminId_fkey");
+            entity.HasOne(d => d.Physician).WithMany(p => p.Requestwisefiles).HasConstraintName("requestwisefile_physicianid_fkey");
 
-            entity.HasOne(d => d.Physician).WithMany(p => p.RequestWiseFiles).HasConstraintName("RequestWiseFile_PhysicianId _fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.RequestWiseFiles)
+            entity.HasOne(d => d.Request).WithMany(p => p.Requestwisefiles)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("RequestWiseFile_RequestId_fkey");
+                .HasConstraintName("requestwisefile_requestid_fkey");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("Role_pkey");
-
-            entity.Property(e => e.RoleId).ValueGeneratedNever();
+            entity.HasKey(e => e.Roleid).HasName("role_pkey");
         });
 
-        modelBuilder.Entity<RoleMenu>(entity =>
+        modelBuilder.Entity<Rolemenu>(entity =>
         {
-            entity.HasKey(e => e.RoleMenuId).HasName("RoleMenu_pkey");
+            entity.HasKey(e => e.Rolemenuid).HasName("rolemenu_pkey");
 
-            entity.Property(e => e.RoleMenuId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Menu).WithMany(p => p.RoleMenus)
+            entity.HasOne(d => d.Menu).WithMany(p => p.Rolemenus)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Menu");
+                .HasConstraintName("rolemenu_menuid_fkey");
 
-            entity.HasOne(d => d.Role).WithMany(p => p.RoleMenus)
+            entity.HasOne(d => d.Role).WithMany(p => p.Rolemenus)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Role");
+                .HasConstraintName("rolemenu_roleid_fkey");
         });
 
         modelBuilder.Entity<Shift>(entity =>
         {
-            entity.HasKey(e => e.ShiftId).HasName("Shift_pkey");
+            entity.HasKey(e => e.Shiftid).HasName("shift_pkey");
 
-            entity.Property(e => e.ShiftId).ValueGeneratedNever();
+            entity.Property(e => e.Weekdays).IsFixedLength();
 
-            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.Shifts)
+            entity.HasOne(d => d.CreatedbyNavigation).WithMany(p => p.Shifts)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("AspNetUsers");
+                .HasConstraintName("shift_createdby_fkey");
 
             entity.HasOne(d => d.Physician).WithMany(p => p.Shifts)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Physician");
+                .HasConstraintName("shift_physicianid_fkey");
         });
 
-        modelBuilder.Entity<ShiftDetail>(entity =>
+        modelBuilder.Entity<Shiftdetail>(entity =>
         {
-            entity.HasKey(e => e.ShiftDetailId).HasName("ShiftDetail_pkey");
+            entity.HasKey(e => e.Shiftdetailid).HasName("shiftdetail_pkey");
 
-            entity.Property(e => e.ShiftDetailId).ValueGeneratedNever();
+            entity.HasOne(d => d.ModifiedbyNavigation).WithMany(p => p.Shiftdetails).HasConstraintName("shiftdetail_modifiedby_fkey");
 
-            entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.ShiftDetails).HasConstraintName("AspNetUsers");
-
-            entity.HasOne(d => d.Region).WithMany(p => p.ShiftDetails).HasConstraintName("ShiftDetail_RegionId _fkey");
-
-            entity.HasOne(d => d.Shift).WithMany(p => p.ShiftDetails)
+            entity.HasOne(d => d.Shift).WithMany(p => p.Shiftdetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Shift");
+                .HasConstraintName("shiftdetail_shiftid_fkey");
         });
 
-        modelBuilder.Entity<ShiftDetailRegion>(entity =>
+        modelBuilder.Entity<Shiftdetailregion>(entity =>
         {
-            entity.HasKey(e => e.ShiftDetailRegionId).HasName("ShiftDetailRegion_pkey");
+            entity.HasKey(e => e.Shiftdetailregionid).HasName("shiftdetailregion_pkey");
 
-            entity.Property(e => e.ShiftDetailRegionId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.Region).WithMany(p => p.ShiftDetailRegions)
+            entity.HasOne(d => d.Region).WithMany(p => p.Shiftdetailregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Region");
+                .HasConstraintName("shiftdetailregion_regionid_fkey");
 
-            entity.HasOne(d => d.ShiftDetail).WithMany(p => p.ShiftDetailRegions)
+            entity.HasOne(d => d.Shiftdetail).WithMany(p => p.Shiftdetailregions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("ShiftDetail");
+                .HasConstraintName("shiftdetailregion_shiftdetailid_fkey");
         });
 
         modelBuilder.Entity<Smslog>(entity =>
         {
-            entity.HasKey(e => e.SmslogId).HasName("SMSLog_pkey");
-
-            entity.HasOne(d => d.Admin).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_AdminId _fkey");
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_PhysicianId_fkey");
-
-            entity.HasOne(d => d.Request).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_RequestId_fkey");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_RoleId_fkey");
+            entity.HasKey(e => e.Smslogid).HasName("smslog_pkey");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("User_pkey");
+            entity.HasKey(e => e.Userid).HasName("User_pkey");
 
-            entity.Property(e => e.UserId).ValueGeneratedNever();
-
-            entity.HasOne(d => d.AspNetUser).WithMany(p => p.Users).HasConstraintName("AspNetUsers");
-
-            entity.HasOne(d => d.Region).WithMany(p => p.Users).HasConstraintName("User_RegionId_fkey");
+            entity.HasOne(d => d.Aspnetuser).WithMany(p => p.Users).HasConstraintName("User_aspnetuserid_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

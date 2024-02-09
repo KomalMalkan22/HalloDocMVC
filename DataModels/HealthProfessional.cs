@@ -7,61 +7,69 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-public partial class HealthProfessional
+[Table("healthprofessionals")]
+public partial class Healthprofessional
 {
     [Key]
-    public int VendorId { get; set; }
+    [Column("vendorid")]
+    public int Vendorid { get; set; }
 
-    [StringLength(128)]
-    public string VendorName { get; set; } = null!;
+    [Column("vendorname")]
+    [StringLength(100)]
+    public string Vendorname { get; set; } = null!;
 
+    [Column("profession")]
     public int? Profession { get; set; }
 
-    [StringLength(56)]
-    public string FaxNumber { get; set; } = null!;
+    [Column("faxnumber")]
+    [StringLength(50)]
+    public string Faxnumber { get; set; } = null!;
 
-    [StringLength(156)]
+    [Column("address")]
+    [StringLength(150)]
     public string? Address { get; set; }
 
-    [StringLength(156)]
+    [Column("city")]
+    [StringLength(100)]
     public string? City { get; set; }
 
-    [StringLength(56)]
+    [Column("state")]
+    [StringLength(50)]
     public string? State { get; set; }
 
-    [StringLength(56)]
+    [Column("zip")]
+    [StringLength(50)]
     public string? Zip { get; set; }
 
-    public int? RegionId { get; set; }
+    [Column("regionid")]
+    public int? Regionid { get; set; }
 
-    public DateTime CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime Createddate { get; set; }
 
-    public DateTime? ModifiedDate { get; set; }
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 
-    [StringLength(128)]
-    public string? PhoneNumber { get; set; }
+    [Column("phonenumber")]
+    [StringLength(100)]
+    public string? Phonenumber { get; set; }
 
-    [Column("IsDeleted ", TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
+    [Column("isdeleted", TypeName = "bit(1)")]
+    public BitArray? Isdeleted { get; set; }
 
-    [Column("IP ")]
+    [Column("ip")]
     [StringLength(20)]
     public string? Ip { get; set; }
 
-    [StringLength(56)]
+    [Column("email")]
+    [StringLength(50)]
     public string? Email { get; set; }
 
-    [StringLength(128)]
-    public string? BusinessContact { get; set; }
-
-    [InverseProperty("Vendor")]
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    [Column("businesscontact")]
+    [StringLength(100)]
+    public string? Businesscontact { get; set; }
 
     [ForeignKey("Profession")]
-    [InverseProperty("HealthProfessionals")]
-    public virtual HealthProfessionalType? ProfessionNavigation { get; set; }
-
-    [ForeignKey("RegionId")]
-    [InverseProperty("HealthProfessionals")]
-    public virtual Region? Region { get; set; }
+    [InverseProperty("Healthprofessionals")]
+    public virtual Healthprofessionaltype? ProfessionNavigation { get; set; }
 }

@@ -7,93 +7,85 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("Admin")]
+[Table("admin")]
 public partial class Admin
 {
     [Key]
-    public int AdminId { get; set; }
+    [Column("adminid")]
+    public int Adminid { get; set; }
 
+    [Column("aspnetuserid")]
     [StringLength(128)]
-    public string AspNetUserId { get; set; } = null!;
+    public string Aspnetuserid { get; set; } = null!;
 
+    [Column("firstname")]
     [StringLength(100)]
-    public string FirstName { get; set; } = null!;
+    public string Firstname { get; set; } = null!;
 
+    [Column("lastname")]
     [StringLength(100)]
-    public string? LastName { get; set; }
+    public string? Lastname { get; set; }
 
+    [Column("email")]
     [StringLength(50)]
     public string Email { get; set; } = null!;
 
+    [Column("mobile")]
     [StringLength(20)]
     public string? Mobile { get; set; }
 
+    [Column("address1")]
     [StringLength(500)]
     public string? Address1 { get; set; }
 
+    [Column("address2")]
     [StringLength(500)]
     public string? Address2 { get; set; }
 
+    [Column("city")]
     [StringLength(100)]
     public string? City { get; set; }
 
-    public int? RegionId { get; set; }
+    [Column("regionid")]
+    public int? Regionid { get; set; }
 
+    [Column("zip")]
     [StringLength(10)]
     public string? Zip { get; set; }
 
+    [Column("altphone")]
     [StringLength(20)]
-    public string? AltPhone { get; set; }
+    public string? Altphone { get; set; }
 
+    [Column("createdby")]
     [StringLength(128)]
-    public string CreatedBy { get; set; } = null!;
+    public string Createdby { get; set; } = null!;
 
-    public DateTime CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime Createddate { get; set; }
 
+    [Column("modifiedby")]
     [StringLength(128)]
-    public string? ModifiedBy { get; set; }
+    public string? Modifiedby { get; set; }
 
-    public DateTime? ModifiedDate { get; set; }
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 
+    [Column("status")]
     public short? Status { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
+    [Column("isdeleted", TypeName = "bit(1)")]
+    public BitArray? Isdeleted { get; set; }
 
-    public int? RoleId { get; set; }
-
-    [InverseProperty("Admin")]
-    public virtual ICollection<AdminRegion> AdminRegions { get; set; } = new List<AdminRegion>();
-
-    [ForeignKey("AspNetUserId")]
-    [InverseProperty("AdminAspNetUsers")]
-    public virtual AspNetUser AspNetUser { get; set; } = null!;
-
-    [ForeignKey("CreatedBy")]
-    [InverseProperty("AdminCreatedByNavigations")]
-    public virtual AspNetUser CreatedByNavigation { get; set; } = null!;
+    [Column("roleid")]
+    public int? Roleid { get; set; }
 
     [InverseProperty("Admin")]
-    public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
-
-    [ForeignKey("ModifiedBy")]
-    [InverseProperty("AdminModifiedByNavigations")]
-    public virtual AspNetUser? ModifiedByNavigation { get; set; }
-
-    [ForeignKey("RegionId")]
-    [InverseProperty("Admins")]
-    public virtual Region? Region { get; set; }
+    public virtual ICollection<Adminregion> Adminregions { get; set; } = new List<Adminregion>();
 
     [InverseProperty("Admin")]
-    public virtual ICollection<RequestStatusLog> RequestStatusLogs { get; set; } = new List<RequestStatusLog>();
+    public virtual ICollection<Requeststatuslog> Requeststatuslogs { get; set; } = new List<Requeststatuslog>();
 
     [InverseProperty("Admin")]
-    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; set; } = new List<RequestWiseFile>();
-
-    [ForeignKey("RoleId")]
-    [InverseProperty("Admins")]
-    public virtual Role? Role { get; set; }
-
-    [InverseProperty("Admin")]
-    public virtual ICollection<Smslog> Smslogs { get; set; } = new List<Smslog>();
+    public virtual ICollection<Requestwisefile> Requestwisefiles { get; set; } = new List<Requestwisefile>();
 }

@@ -6,31 +6,36 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("PhysicianLocation")]
-public partial class PhysicianLocation
+[Table("physicianlocation")]
+public partial class Physicianlocation
 {
     [Key]
-    [Column("LocationId ")]
-    public int LocationId { get; set; }
+    [Column("locationid")]
+    public int Locationid { get; set; }
 
-    public int PhysicianId { get; set; }
+    [Column("physicianid")]
+    public int Physicianid { get; set; }
 
-    [Column("Latitude ")]
-    [Precision(10, 0)]
+    [Column("latitude")]
+    [Precision(9, 0)]
     public decimal? Latitude { get; set; }
 
-    [Precision(10, 0)]
+    [Column("longitude")]
+    [Precision(9, 0)]
     public decimal? Longitude { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime? Createddate { get; set; }
 
-    [StringLength(56)]
-    public string? PhysicianName { get; set; }
+    [Column("physicianname")]
+    [StringLength(50)]
+    public string? Physicianname { get; set; }
 
-    [StringLength(556)]
+    [Column("address")]
+    [StringLength(500)]
     public string? Address { get; set; }
 
-    [ForeignKey("PhysicianId")]
-    [InverseProperty("PhysicianLocations")]
+    [ForeignKey("Physicianid")]
+    [InverseProperty("Physicianlocations")]
     public virtual Physician Physician { get; set; } = null!;
 }

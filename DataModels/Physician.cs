@@ -7,154 +7,169 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("Physician")]
+[Table("physician")]
 public partial class Physician
 {
     [Key]
-    public int PhysicianId { get; set; }
+    [Column("physicianid")]
+    public int Physicianid { get; set; }
 
+    [Column("aspnetuserid")]
     [StringLength(128)]
-    public string? AspNetUserId { get; set; }
+    public string? Aspnetuserid { get; set; }
 
+    [Column("firstname")]
     [StringLength(100)]
-    public string FirstName { get; set; } = null!;
+    public string Firstname { get; set; } = null!;
 
+    [Column("lastname")]
     [StringLength(100)]
-    public string? LastName { get; set; }
+    public string? Lastname { get; set; }
 
+    [Column("email")]
     [StringLength(50)]
     public string Email { get; set; } = null!;
 
+    [Column("mobile")]
     [StringLength(20)]
     public string? Mobile { get; set; }
 
+    [Column("medicallicense")]
     [StringLength(500)]
-    public string? MedicalLicense { get; set; }
+    public string? Medicallicense { get; set; }
 
+    [Column("photo")]
     [StringLength(100)]
     public string? Photo { get; set; }
 
+    [Column("adminnotes")]
     [StringLength(500)]
-    public string? AdminNotes { get; set; }
+    public string? Adminnotes { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsAgreementDoc { get; set; }
+    [Column("isagreementdoc", TypeName = "bit(1)")]
+    public BitArray? Isagreementdoc { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsBackgroundDoc { get; set; }
+    [Column("isbackgrounddoc", TypeName = "bit(1)")]
+    public BitArray? Isbackgrounddoc { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsTrainingDoc { get; set; }
+    [Column("istrainingdoc", TypeName = "bit(1)")]
+    public BitArray? Istrainingdoc { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsNonDisclosureDoc { get; set; }
+    [Column("isnondisclosuredoc", TypeName = "bit(1)")]
+    public BitArray? Isnondisclosuredoc { get; set; }
 
+    [Column("address1")]
     [StringLength(500)]
     public string? Address1 { get; set; }
 
+    [Column("address2")]
     [StringLength(500)]
     public string? Address2 { get; set; }
 
+    [Column("city")]
     [StringLength(100)]
     public string? City { get; set; }
 
-    public int? RegionId { get; set; }
+    [Column("regionid")]
+    public int? Regionid { get; set; }
 
+    [Column("zip")]
     [StringLength(10)]
     public string? Zip { get; set; }
 
+    [Column("altphone")]
     [StringLength(20)]
-    public string? AltPhone { get; set; }
+    public string? Altphone { get; set; }
 
+    [Column("createdby")]
     [StringLength(128)]
-    public string CreatedBy { get; set; } = null!;
+    public string Createdby { get; set; } = null!;
 
-    public DateTime CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime Createddate { get; set; }
 
+    [Column("modifiedby")]
     [StringLength(128)]
-    public string? ModifiedBy { get; set; }
+    public string? Modifiedby { get; set; }
 
-    public DateTime? ModifiedDate { get; set; }
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 
+    [Column("status")]
     public short? Status { get; set; }
 
+    [Column("businessname")]
     [StringLength(100)]
-    public string BusinessName { get; set; } = null!;
+    public string Businessname { get; set; } = null!;
 
+    [Column("businesswebsite")]
     [StringLength(200)]
-    public string BusinessWebsite { get; set; } = null!;
+    public string Businesswebsite { get; set; } = null!;
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
+    [Column("isdeleted", TypeName = "bit(1)")]
+    public BitArray? Isdeleted { get; set; }
 
-    public int? RoleId { get; set; }
+    [Column("roleid")]
+    public int? Roleid { get; set; }
 
-    [Column("NPINumber")]
+    [Column("npinumber")]
     [StringLength(500)]
     public string? Npinumber { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsLicenseDoc { get; set; }
+    [Column("islicensedoc", TypeName = "bit(1)")]
+    public BitArray? Islicensedoc { get; set; }
 
+    [Column("signature")]
     [StringLength(100)]
     public string? Signature { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsCredentialDoc { get; set; }
+    [Column("iscredentialdoc", TypeName = "bit(1)")]
+    public BitArray? Iscredentialdoc { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsTokenGenerate { get; set; }
+    [Column("istokengenerate", TypeName = "bit(1)")]
+    public BitArray? Istokengenerate { get; set; }
 
+    [Column("syncemailaddress")]
     [StringLength(50)]
-    public string? SyncEmailAddress { get; set; }
+    public string? Syncemailaddress { get; set; }
 
-    [ForeignKey("AspNetUserId")]
-    [InverseProperty("PhysicianAspNetUsers")]
-    public virtual AspNetUser? AspNetUser { get; set; }
+    [ForeignKey("Aspnetuserid")]
+    [InverseProperty("PhysicianAspnetusers")]
+    public virtual Aspnetuser? Aspnetuser { get; set; }
 
-    [ForeignKey("CreatedBy")]
-    [InverseProperty("PhysicianCreatedByNavigations")]
-    public virtual AspNetUser CreatedByNavigation { get; set; } = null!;
+    [ForeignKey("Createdby")]
+    [InverseProperty("PhysicianCreatedbyNavigations")]
+    public virtual Aspnetuser CreatedbyNavigation { get; set; } = null!;
 
-    [InverseProperty("Physician")]
-    public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
-
-    [ForeignKey("ModifiedBy")]
-    [InverseProperty("PhysicianModifiedByNavigations")]
-    public virtual AspNetUser? ModifiedByNavigation { get; set; }
+    [ForeignKey("Modifiedby")]
+    [InverseProperty("PhysicianModifiedbyNavigations")]
+    public virtual Aspnetuser? ModifiedbyNavigation { get; set; }
 
     [InverseProperty("Physician")]
-    public virtual ICollection<PhysicianLocation> PhysicianLocations { get; set; } = new List<PhysicianLocation>();
+    public virtual ICollection<Physicianlocation> Physicianlocations { get; set; } = new List<Physicianlocation>();
 
     [InverseProperty("Physician")]
-    public virtual ICollection<PhysicianNotification> PhysicianNotifications { get; set; } = new List<PhysicianNotification>();
+    public virtual ICollection<Physiciannotification> Physiciannotifications { get; set; } = new List<Physiciannotification>();
 
     [InverseProperty("Physician")]
-    public virtual ICollection<PhysicianRegion> PhysicianRegions { get; set; } = new List<PhysicianRegion>();
+    public virtual ICollection<Physicianregion> Physicianregions { get; set; } = new List<Physicianregion>();
 
-    [ForeignKey("RegionId")]
+    [ForeignKey("Regionid")]
     [InverseProperty("Physicians")]
     public virtual Region? Region { get; set; }
 
     [InverseProperty("Physician")]
-    public virtual ICollection<RequestStatusLog> RequestStatusLogPhysicians { get; set; } = new List<RequestStatusLog>();
-
-    [InverseProperty("TransToPhysician")]
-    public virtual ICollection<RequestStatusLog> RequestStatusLogTransToPhysicians { get; set; } = new List<RequestStatusLog>();
-
-    [InverseProperty("Physician")]
-    public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; set; } = new List<RequestWiseFile>();
-
-    [InverseProperty("Physician")]
     public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
 
-    [ForeignKey("RoleId")]
-    [InverseProperty("Physicians")]
-    public virtual Role? Role { get; set; }
+    [InverseProperty("Physician")]
+    public virtual ICollection<Requeststatuslog> RequeststatuslogPhysicians { get; set; } = new List<Requeststatuslog>();
+
+    [InverseProperty("Transtophysician")]
+    public virtual ICollection<Requeststatuslog> RequeststatuslogTranstophysicians { get; set; } = new List<Requeststatuslog>();
+
+    [InverseProperty("Physician")]
+    public virtual ICollection<Requestwisefile> Requestwisefiles { get; set; } = new List<Requestwisefile>();
 
     [InverseProperty("Physician")]
     public virtual ICollection<Shift> Shifts { get; set; } = new List<Shift>();
-
-    [InverseProperty("Physician")]
-    public virtual ICollection<Smslog> Smslogs { get; set; } = new List<Smslog>();
 }

@@ -7,34 +7,38 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-public partial class BlockRequest
+[Table("blockrequests")]
+public partial class Blockrequest
 {
     [Key]
-    public int BlockRequestId { get; set; }
+    [Column("blockrequestid")]
+    public int Blockrequestid { get; set; }
 
+    [Column("phonenumber")]
     [StringLength(50)]
-    public string? PhoneNumber { get; set; }
+    public string? Phonenumber { get; set; }
 
+    [Column("email")]
     [StringLength(50)]
     public string? Email { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsActive { get; set; }
+    [Column("isactive", TypeName = "bit(1)")]
+    public BitArray? Isactive { get; set; }
 
-    [StringLength(500)]
+    [Column("reason")]
     public string? Reason { get; set; }
 
-    public int RequestId { get; set; }
+    [Column("requestid")]
+    [StringLength(50)]
+    public string Requestid { get; set; } = null!;
 
-    [Column("IP")]
+    [Column("ip")]
     [StringLength(20)]
     public string? Ip { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime? Createddate { get; set; }
 
-    public DateTime? ModifiedDate { get; set; }
-
-    [ForeignKey("RequestId")]
-    [InverseProperty("BlockRequests")]
-    public virtual Request Request { get; set; } = null!;
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 }

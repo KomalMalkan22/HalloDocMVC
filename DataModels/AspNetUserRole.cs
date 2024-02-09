@@ -20,5 +20,5 @@ public partial class AspNetUserRole
 
     [ForeignKey("UserId")]
     [InverseProperty("AspNetUserRoles")]
-    public virtual AspNetUser User { get; set; } = null!;
+    public virtual Aspnetuser User { get; set; } = null!;
 }

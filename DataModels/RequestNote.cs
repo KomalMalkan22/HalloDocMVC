@@ -6,48 +6,57 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-public partial class RequestNote
+[Table("requestnotes")]
+public partial class Requestnote
 {
     [Key]
-    [Column("RequestNotesId ")]
-    public int RequestNotesId { get; set; }
+    [Column("requestnotesid")]
+    public int Requestnotesid { get; set; }
 
-    public int RequestId { get; set; }
+    [Column("requestid")]
+    public int Requestid { get; set; }
 
-    [Column("strMonth ")]
+    [Column("strmonth")]
     [StringLength(20)]
-    public string? StrMonth { get; set; }
+    public string? Strmonth { get; set; }
 
-    [Column("intYear")]
-    public int? IntYear { get; set; }
+    [Column("intyear")]
+    public int? Intyear { get; set; }
 
-    [Column("intDate")]
-    public int? IntDate { get; set; }
+    [Column("intdate")]
+    public int? Intdate { get; set; }
 
-    [Column("PhysicianNotes ")]
-    public string? PhysicianNotes { get; set; }
+    [Column("physiciannotes")]
+    [StringLength(500)]
+    public string? Physiciannotes { get; set; }
 
-    public string? AdminNotes { get; set; }
+    [Column("adminnotes")]
+    [StringLength(500)]
+    public string? Adminnotes { get; set; }
 
+    [Column("createdby")]
     [StringLength(128)]
-    public string CreatedBy { get; set; } = null!;
+    public string Createdby { get; set; } = null!;
 
-    public DateTime CreatedDate { get; set; }
+    [Column("createddate", TypeName = "timestamp without time zone")]
+    public DateTime Createddate { get; set; }
 
+    [Column("modifiedby")]
     [StringLength(128)]
-    public string? ModifiedBy { get; set; }
+    public string? Modifiedby { get; set; }
 
-    [Column("ModifiedDate ")]
-    public DateTime? ModifiedDate { get; set; }
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 
-    [Column("IP ")]
+    [Column("ip")]
     [StringLength(20)]
     public string? Ip { get; set; }
 
+    [Column("administrativenotes")]
     [StringLength(500)]
-    public string? AdministrativeNotes { get; set; }
+    public string? Administrativenotes { get; set; }
 
-    [ForeignKey("RequestId")]
-    [InverseProperty("RequestNotes")]
+    [ForeignKey("Requestid")]
+    [InverseProperty("Requestnotes")]
     public virtual Request Request { get; set; } = null!;
 }

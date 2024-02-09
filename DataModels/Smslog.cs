@@ -7,57 +7,49 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("SMSLog")]
+[Table("smslog")]
 public partial class Smslog
 {
     [Key]
-    [Column("SMSLogID")]
-    [Precision(10, 0)]
-    public decimal SmslogId { get; set; }
+    [Column("smslogid")]
+    public int Smslogid { get; set; }
 
-    [Column("SMSTemplate ", TypeName = "character varying")]
-    public string Smstemplate { get; set; } = null!;
+    [Column("smstemplate")]
+    [StringLength(100)]
+    public string? Smstemplate { get; set; }
 
-    [StringLength(56)]
-    public string MobileNumber { get; set; } = null!;
+    [Column("mobilenumber")]
+    [StringLength(50)]
+    public string Mobilenumber { get; set; } = null!;
 
-    [StringLength(56)]
-    public string? ConfirmationNumber { get; set; }
+    [Column("confirmationnumber")]
+    [StringLength(200)]
+    public string? Confirmationnumber { get; set; }
 
-    public int? RoleId { get; set; }
+    [Column("roleid")]
+    public int? Roleid { get; set; }
 
-    [Column("AdminId ")]
-    public int? AdminId { get; set; }
+    [Column("adminid")]
+    public int? Adminid { get; set; }
 
-    public int? RequestId { get; set; }
+    [Column("requestid")]
+    public int? Requestid { get; set; }
 
-    public int? PhysicianId { get; set; }
+    [Column("physicianid")]
+    public int? Physicianid { get; set; }
 
-    [Column("CreateDate ")]
-    public DateTime CreateDate { get; set; }
+    [Column("createdate", TypeName = "timestamp without time zone")]
+    public DateTime Createdate { get; set; }
 
-    public DateTime? SentDate { get; set; }
+    [Column("sentdate", TypeName = "timestamp without time zone")]
+    public DateTime? Sentdate { get; set; }
 
-    [Column("IsSMSSent", TypeName = "bit(1)")]
-    public BitArray? IsSmssent { get; set; }
+    [Column("issmssent", TypeName = "bit(1)")]
+    public BitArray? Issmssent { get; set; }
 
-    public int SentTries { get; set; }
+    [Column("senttries")]
+    public int Senttries { get; set; }
 
+    [Column("action")]
     public int? Action { get; set; }
-
-    [ForeignKey("AdminId")]
-    [InverseProperty("Smslogs")]
-    public virtual Admin? Admin { get; set; }
-
-    [ForeignKey("PhysicianId")]
-    [InverseProperty("Smslogs")]
-    public virtual Physician? Physician { get; set; }
-
-    [ForeignKey("RequestId")]
-    [InverseProperty("Smslogs")]
-    public virtual Request? Request { get; set; }
-
-    [ForeignKey("RoleId")]
-    [InverseProperty("Smslogs")]
-    public virtual Role? Role { get; set; }
 }

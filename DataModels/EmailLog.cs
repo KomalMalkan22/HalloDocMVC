@@ -7,63 +7,56 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("EmailLog")]
-public partial class EmailLog
+[Table("emaillog")]
+public partial class Emaillog
 {
     [Key]
-    [Column("EmailLogID")]
-    [Precision(10, 0)]
-    public decimal EmailLogId { get; set; }
+    [Column("emaillogid")]
+    [Precision(9, 0)]
+    public decimal Emaillogid { get; set; }
 
-    [Column(TypeName = "character varying")]
-    public string EmailTemplate { get; set; } = null!;
+    [Column("emailtemplate")]
+    public string Emailtemplate { get; set; } = null!;
 
-    [StringLength(256)]
-    public string SubjectName { get; set; } = null!;
+    [Column("subjectname")]
+    [StringLength(200)]
+    public string Subjectname { get; set; } = null!;
 
-    [Column("EmailID")]
-    [StringLength(256)]
-    public string EmailId { get; set; } = null!;
+    [Column("emailid")]
+    [StringLength(200)]
+    public string Emailid { get; set; } = null!;
 
-    [StringLength(256)]
-    public string? ConfirmationNumber { get; set; }
+    [Column("confirmationnumber")]
+    [StringLength(200)]
+    public string? Confirmationnumber { get; set; }
 
-    [Column(TypeName = "character varying")]
-    public string? FilePath { get; set; }
+    [Column("filepath")]
+    public string? Filepath { get; set; }
 
-    [Column("RoleId ")]
-    public int? RoleId { get; set; }
+    [Column("roleid")]
+    public int? Roleid { get; set; }
 
-    public int? RequestId { get; set; }
+    [Column("requestid")]
+    public int? Requestid { get; set; }
 
-    public int? AdminId { get; set; }
+    [Column("adminid")]
+    public int? Adminid { get; set; }
 
-    public int? PhysicianId { get; set; }
+    [Column("physicianid")]
+    public int? Physicianid { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    [Column("createdate", TypeName = "timestamp without time zone")]
+    public DateTime Createdate { get; set; }
 
-    public DateTime? SentDate { get; set; }
+    [Column("sentdate", TypeName = "timestamp without time zone")]
+    public DateTime? Sentdate { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsEmailSent { get; set; }
+    [Column("isemailsent", TypeName = "bit(1)")]
+    public BitArray? Isemailsent { get; set; }
 
-    public int? SentTries { get; set; }
+    [Column("senttries")]
+    public int? Senttries { get; set; }
 
+    [Column("action")]
     public int? Action { get; set; }
-
-    [ForeignKey("AdminId")]
-    [InverseProperty("EmailLogs")]
-    public virtual Admin? Admin { get; set; }
-
-    [ForeignKey("PhysicianId")]
-    [InverseProperty("EmailLogs")]
-    public virtual Physician? Physician { get; set; }
-
-    [ForeignKey("RequestId")]
-    [InverseProperty("EmailLogs")]
-    public virtual Request? Request { get; set; }
-
-    [ForeignKey("RoleId")]
-    [InverseProperty("EmailLogs")]
-    public virtual Role? Role { get; set; }
 }

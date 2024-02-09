@@ -6,21 +6,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("Menu")]
+[Table("menu")]
 public partial class Menu
 {
     [Key]
-    [Column("MenuId ")]
-    public int MenuId { get; set; }
+    [Column("menuid")]
+    public int Menuid { get; set; }
 
-    [Column("Name ")]
-    [StringLength(56)]
+    [Column("name")]
+    [StringLength(50)]
     public string Name { get; set; } = null!;
 
-    public short AccountType { get; set; }
+    [Column("accounttype")]
+    public short Accounttype { get; set; }
 
-    public int? SortOrder { get; set; }
+    [Column("sortorder")]
+    public int? Sortorder { get; set; }
 
     [InverseProperty("Menu")]
-    public virtual ICollection<RoleMenu> RoleMenus { get; set; } = new List<RoleMenu>();
+    public virtual ICollection<Rolemenu> Rolemenus { get; set; } = new List<Rolemenu>();
 }

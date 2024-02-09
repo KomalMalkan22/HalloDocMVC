@@ -6,16 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-[Table("RequestType")]
-public partial class RequestType
+[Table("requesttype")]
+public partial class Requesttype
 {
     [Key]
-    public int RequestTypeId { get; set; }
+    [Column("requesttypeid")]
+    public int Requesttypeid { get; set; }
 
-    [Column("Name ")]
-    [StringLength(56)]
+    [Column("name")]
+    [StringLength(50)]
     public string Name { get; set; } = null!;
-
-    [InverseProperty("RequestType")]
-    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
 }

@@ -7,91 +7,90 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HalloDoc.DataContext;
 using HalloDoc.DataModels;
-using HalloDoc.Models;
 
 namespace HalloDoc.Controllers
 {
-    public class AspNetUsersController : Controller
+    public class AspnetusersController : Controller
     {
         private readonly HalloDocContext _context;
 
-        public AspNetUsersController(HalloDocContext context)
+        public AspnetusersController(HalloDocContext context)
         {
             _context = context;
         }
 
-        // GET: AspNetUsers
+        // GET: Aspnetusers
         public async Task<IActionResult> Index()
         {
-              return _context.AspNetUsers != null ? 
-                          View(await _context.AspNetUsers.ToListAsync()) :
-                          Problem("Entity set 'HalloDocContext.AspNetUsers'  is null.");
+              return _context.Aspnetusers != null ? 
+                          View(await _context.Aspnetusers.ToListAsync()) :
+                          Problem("Entity set 'HalloDocContext.Aspnetusers'  is null.");
         }
 
-        // GET: AspNetUsers/Details/5
+        // GET: Aspnetusers/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.AspNetUsers == null)
+            if (id == null || _context.Aspnetusers == null)
             {
                 return NotFound();
             }
 
-            var aspNetUser = await _context.AspNetUsers
+            var aspnetuser = await _context.Aspnetusers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (aspNetUser == null)
+            if (aspnetuser == null)
             {
                 return NotFound();
             }
 
-            return View(aspNetUser);
+            return View(aspnetuser);
         }
 
-        // GET: AspNetUsers/Create
+        // GET: Aspnetusers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: AspNetUsers/Create
+        // POST: Aspnetusers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,PasswordHash,Email,PhoneNumber,Ip,CorePasswordHash,CreatedDate,ModifiedDate")] AspNetUser aspNetUser)
+        public async Task<IActionResult> Create([Bind("Id,Username,Passwordhash,Email,Phonenumber,CreatedDate,Ip,Modifieddate")] Aspnetuser aspnetuser)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(aspNetUser);
+                _context.Add(aspnetuser);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(aspNetUser);
+            return View(aspnetuser);
         }
 
-        // GET: AspNetUsers/Edit/5
+        // GET: Aspnetusers/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.AspNetUsers == null)
+            if (id == null || _context.Aspnetusers == null)
             {
                 return NotFound();
             }
 
-            var aspNetUser = await _context.AspNetUsers.FindAsync(id);
-            if (aspNetUser == null)
+            var aspnetuser = await _context.Aspnetusers.FindAsync(id);
+            if (aspnetuser == null)
             {
                 return NotFound();
             }
-            return View(aspNetUser);
+            return View(aspnetuser);
         }
 
-        // POST: AspNetUsers/Edit/5
+        // POST: Aspnetusers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,PasswordHash,Email,PhoneNumber,Ip,CorePasswordHash,CreatedDate,ModifiedDate")] AspNetUser aspNetUser)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Username,Passwordhash,Email,Phonenumber,CreatedDate,Ip,Modifieddate")] Aspnetuser aspnetuser)
         {
-            if (id != aspNetUser.Id)
+            if (id != aspnetuser.Id)
             {
                 return NotFound();
             }
@@ -100,12 +99,12 @@ namespace HalloDoc.Controllers
             {
                 try
                 {
-                    _context.Update(aspNetUser);
+                    _context.Update(aspnetuser);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AspNetUserExists(aspNetUser.Id))
+                    if (!AspnetuserExists(aspnetuser.Id))
                     {
                         return NotFound();
                     }
@@ -116,40 +115,40 @@ namespace HalloDoc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(aspNetUser);
+            return View(aspnetuser);
         }
 
-        // GET: AspNetUsers/Delete/5
+        // GET: Aspnetusers/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.AspNetUsers == null)
+            if (id == null || _context.Aspnetusers == null)
             {
                 return NotFound();
             }
 
-            var aspNetUser = await _context.AspNetUsers
+            var aspnetuser = await _context.Aspnetusers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (aspNetUser == null)
+            if (aspnetuser == null)
             {
                 return NotFound();
             }
 
-            return View(aspNetUser);
+            return View(aspnetuser);
         }
 
-        // POST: AspNetUsers/Delete/5
+        // POST: Aspnetusers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.AspNetUsers == null)
+            if (_context.Aspnetusers == null)
             {
-                return Problem("Entity set 'HalloDocContext.AspNetUsers'  is null.");
+                return Problem("Entity set 'HalloDocContext.Aspnetusers'  is null.");
             }
-            var aspNetUser = await _context.AspNetUsers.FindAsync(id);
-            if (aspNetUser != null)
+            var aspnetuser = await _context.Aspnetusers.FindAsync(id);
+            if (aspnetuser != null)
             {
-                _context.AspNetUsers.Remove(aspNetUser);
+                _context.Aspnetusers.Remove(aspnetuser);
             }
             
             await _context.SaveChangesAsync();
@@ -158,9 +157,9 @@ namespace HalloDoc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("Email", "PasswordHash")] AspNetUser aspNetUser)
+        public async Task<IActionResult> Login([Bind("Email", "Passwordhash")] Aspnetuser aspnetuser)
         {
-            var user = await _context.AspNetUsers.FirstOrDefaultAsync(u => u.Email == aspNetUser.Email && u.PasswordHash == aspNetUser.PasswordHash);
+            var user = await _context.Aspnetusers.FirstOrDefaultAsync(u => u.Email == aspnetuser.Email && u.Passwordhash == aspnetuser.Passwordhash);
 
             if (user == null)
             {
@@ -170,12 +169,11 @@ namespace HalloDoc.Controllers
             {
                 return RedirectToAction("SubmitRequestScreen", "Request");
             }
-
         }
 
-        private bool AspNetUserExists(string id)
+        private bool AspnetuserExists(string id)
         {
-          return (_context.AspNetUsers?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Aspnetusers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

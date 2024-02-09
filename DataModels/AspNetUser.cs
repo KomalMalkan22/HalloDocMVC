@@ -6,68 +6,65 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.DataModels;
 
-public partial class AspNetUser
+[Table("aspnetusers")]
+public partial class Aspnetuser
 {
     [Key]
+    [Column("id")]
     [StringLength(128)]
     public string Id { get; set; } = null!;
 
+    [Column("username")]
     [StringLength(256)]
-    public string UserName { get; set; } = null!;
+    public string Username { get; set; } = null!;
 
-    [Column("PasswordHash ", TypeName = "character varying")]
-    public string? PasswordHash { get; set; }
+    [Column("passwordhash")]
+    [StringLength(255)]
+    public string? Passwordhash { get; set; }
 
+    [Column("email")]
     [StringLength(256)]
     public string? Email { get; set; }
 
-    [Column(TypeName = "character varying")]
-    public string? PhoneNumber { get; set; }
+    [Column("phonenumber")]
+    [StringLength(20)]
+    public string? Phonenumber { get; set; }
 
-    [Column("IP")]
+    [Column(TypeName = "timestamp without time zone")]
+    public DateTime CreatedDate { get; set; }
+
+    [Column("ip")]
     [StringLength(20)]
     public string? Ip { get; set; }
 
-    [Column("CorePasswordHash ", TypeName = "character varying")]
-    public string? CorePasswordHash { get; set; }
+    [Column("modifieddate", TypeName = "timestamp without time zone")]
+    public DateTime? Modifieddate { get; set; }
 
-    public DateTime CreatedDate { get; set; }
+    [InverseProperty("CreatedbyNavigation")]
+    public virtual ICollection<Business> BusinessCreatedbyNavigations { get; set; } = new List<Business>();
 
-    public DateTime? ModifiedDate { get; set; }
+    [InverseProperty("ModifiedbyNavigation")]
+    public virtual ICollection<Business> BusinessModifiedbyNavigations { get; set; } = new List<Business>();
 
-    [InverseProperty("AspNetUser")]
-    public virtual ICollection<Admin> AdminAspNetUsers { get; set; } = new List<Admin>();
+    [InverseProperty("Aspnetuser")]
+    public virtual ICollection<Physician> PhysicianAspnetusers { get; set; } = new List<Physician>();
 
-    [InverseProperty("CreatedByNavigation")]
-    public virtual ICollection<Admin> AdminCreatedByNavigations { get; set; } = new List<Admin>();
+    [InverseProperty("CreatedbyNavigation")]
+    public virtual ICollection<Physician> PhysicianCreatedbyNavigations { get; set; } = new List<Physician>();
 
-    [InverseProperty("ModifiedByNavigation")]
-    public virtual ICollection<Admin> AdminModifiedByNavigations { get; set; } = new List<Admin>();
+    [InverseProperty("ModifiedbyNavigation")]
+    public virtual ICollection<Physician> PhysicianModifiedbyNavigations { get; set; } = new List<Physician>();
 
-    [InverseProperty("User")]
-    public virtual ICollection<AspNetUserRole> AspNetUserRoles { get; set; } = new List<AspNetUserRole>();
+    [InverseProperty("ModifiedbyNavigation")]
+    public virtual ICollection<Shiftdetail> Shiftdetails { get; set; } = new List<Shiftdetail>();
 
-    [InverseProperty("CreatedByNavigation")]
-    public virtual ICollection<Business> BusinessCreatedByNavigations { get; set; } = new List<Business>();
-
-    [InverseProperty("ModifiedByNavigation")]
-    public virtual ICollection<Business> BusinessModifiedByNavigations { get; set; } = new List<Business>();
-
-    [InverseProperty("AspNetUser")]
-    public virtual ICollection<Physician> PhysicianAspNetUsers { get; set; } = new List<Physician>();
-
-    [InverseProperty("CreatedByNavigation")]
-    public virtual ICollection<Physician> PhysicianCreatedByNavigations { get; set; } = new List<Physician>();
-
-    [InverseProperty("ModifiedByNavigation")]
-    public virtual ICollection<Physician> PhysicianModifiedByNavigations { get; set; } = new List<Physician>();
-
-    [InverseProperty("ModifiedByNavigation")]
-    public virtual ICollection<ShiftDetail> ShiftDetails { get; set; } = new List<ShiftDetail>();
-
-    [InverseProperty("CreatedByNavigation")]
+    [InverseProperty("CreatedbyNavigation")]
     public virtual ICollection<Shift> Shifts { get; set; } = new List<Shift>();
 
-    [InverseProperty("AspNetUser")]
+    [InverseProperty("Aspnetuser")]
     public virtual ICollection<User> Users { get; set; } = new List<User>();
+
+    [ForeignKey("Userid")]
+    [InverseProperty("Users")]
+    public virtual ICollection<Aspnetrole> Roles { get; set; } = new List<Aspnetrole>();
 }
