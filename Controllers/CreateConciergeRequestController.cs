@@ -27,6 +27,7 @@ namespace HalloDoc.Controllers
                 City = createConciergeRequest.C_City,
                 State = createConciergeRequest.C_State,
                 Zipcode = createConciergeRequest.C_ZipCode,
+                Regionid = 1,
                 Createddate = DateTime.Now
             };
             _context.Concierges.Add(concierge);
@@ -61,6 +62,14 @@ namespace HalloDoc.Controllers
                 Location = createConciergeRequest.RoomSuite
             };
             _context.Requestclients.Add(requestClient);
+            await _context.SaveChangesAsync();
+
+            var requestConcierge = new Requestconcierge
+            {
+                Requestid = request.Requestid,
+                Conciergeid = concierge.Conciergeid
+            };
+            _context.Requestconcierges.Add(requestConcierge);
             await _context.SaveChangesAsync();
 
             return View("../Request/SubmitRequestScreen");

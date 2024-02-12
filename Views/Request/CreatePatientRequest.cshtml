@@ -52,7 +52,7 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Email" type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
+                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Email</label>
                         </div>
                     </div>
@@ -61,10 +61,16 @@
                             <input asp-for="PhoneNumber" type="tel" class="form-control shadow-none" id="phone">
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none">
                         <div class="form-floating mb-3">
-                            <input asp-for="Email" type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email</label>
+                            <input asp-for="UserName" type="text" class="form-control shadow-none" id="username" placeholder="UserName">
+                            <label for="floatingInput">UserName</label>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none">
+                        <div class="form-floating mb-3">
+                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="password" placeholder="Password">
+                            <label for="floatingInput">Password</label>
                         </div>
                     </div>
                 </div>
@@ -140,4 +146,34 @@
         utilsScript:
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
+
+    /* Showing Username and password field on submitting new email */
+
+    $(function () {
+        $("#email").focusout(function () {
+            var email = $("#email").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("CheckEmail")?email=' + email,
+                cache: false,
+                success: function (response) {
+                    var flag = response.message == 'False';
+                    var userId = response.data;
+                    console.log(response);
+                    if (flag) {
+                        // Show the username and password fields
+                        $("#username").show();
+                        $("#password").show();
+                    } else {
+                        $("#username").hide();
+                        $("#password").hide();
+                    }
+                },
+                error: function () {
+                    alert("Error while checking email.");
+                }
+            });
+        });
+    });
 </script>
+<

@@ -78,6 +78,24 @@ namespace HalloDoc.Controllers
             //}
 
         }
+        [HttpPost]
+        public async Task<IActionResult> CheckEmailAsync(string email)
+        {
+            string message;
+            var aspnetuser = await _context.Aspnetusers.FirstOrDefaultAsync(m => m.Email == email);
+            if (aspnetuser == null)
+            {
+                message = "False";
+            }
+            else
+            {
+                message = "success";
+            }
+            return Json(new
+            {
+                Message = message,
+            });
+        }
         public IActionResult Index()
         {
             return View("../Request/CreatePatientRequest");

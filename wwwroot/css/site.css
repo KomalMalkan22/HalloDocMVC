@@ -179,3 +179,13 @@ i.fa.fa-eye {
 .phone .form-control {
     line-height: 2.5;
 }
+
+/* Patient Dashboard */
+.TabItem {
+    border: none !important;
+}
+
+.TabItem:hover {
+    border-bottom: 2px solid #0DCAF0 !important;
+    color: #0DCAF0;
+}

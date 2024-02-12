@@ -53,6 +53,34 @@
                     </div>
                 </div>
             </div>
+            <!-- Concierge Location -->
+            <strong class="fs-5 p-2">Concierge Location</strong>
+            <div class="row p-2">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="C_Street" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Street">
+                        <label for="floatingInput">Street</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="C_City" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter City">
+                        <label for="floatingInput">City</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="C_State" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter State">
+                        <label for="floatingInput">State</label>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="C_ZipCode" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Zip Code">
+                        <label for="floatingInput">Zip Code</label>
+                    </div>
+                </div>
+            </div>
             <!-- Patient Information -->
             <strong class="fs-5 p-2">Patient Information</strong>
             <div class="row p-2">
@@ -107,7 +135,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a class="btn btn-info text-white mx-2">Submit</a>
+                <button type="submit" class="btn btn-info text-white mx-2">Submit</button>
                 <a asp-controller="Request" asp-action="SubmitRequestScreen" class="btn border border-info text-info mx-2">Cancel</a>
             </div>
         </form>        
