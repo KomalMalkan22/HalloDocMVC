@@ -2,9 +2,9 @@
 
 namespace HalloDoc.Controllers
 {
-    public class RequestController : Controller
+    public class PatientDashboardController : Controller
     {
-        public IActionResult SubmitRequestScreen()
+        public IActionResult Index()
         {
             return View();
         }
