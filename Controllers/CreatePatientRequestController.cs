@@ -121,11 +121,11 @@ namespace HalloDoc.Controllers
             }
             else
             {
-                message = "success";
+                message = "Success";
             }
             return Json(new
             {
-                Message = message,
+                isAspnetuser = aspnetuser == null
             });
         }
         public IActionResult Index()

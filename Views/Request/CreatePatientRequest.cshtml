@@ -18,8 +18,7 @@
         <div class="shadow bg-white rounded m-2 p-2">
             <!-- Patient Information -->
             <strong class="fs-5 p-2">Patient Information</strong>
-            <form asp-controller="CreatePatientRequest" asp-action="Create" method="post" enctype="multipart/form-data">
-                
+            <form asp-controller="CreatePatientRequest" asp-action="Create" method="post" enctype="multipart/form-data">                
                 <div class="row p-2">
                     <div class="col-12">
                         <div class="form-floating mb-3">
@@ -53,8 +52,8 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" id="Email" placeholder="name@example.com">
-                            <label for="Email">Email</label>
+                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" placeholder="name@example.com">
+                            <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6 phone">
@@ -62,16 +61,16 @@
                             <input asp-for="PhoneNumber" type="tel" class="form-control shadow-none" id="phone">
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display:none;">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" id="UserName" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="UserName" type="text" class="form-control shadow-none" id="UserName" placeholder="UserName">
-                            <label for="UserName">UserName</label>
+                            <input asp-for="UserName" type="text" class="form-control shadow-none" id="uname" placeholder="UserName">
+                            <label for="uname">UserName</label>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display:none;">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" id="PassWord" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="PassWord" placeholder="Password">
-                            <label for="PassWord">Password</label>
+                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="pwd" placeholder="Password">
+                            <label for="pwd">Password</label>
                         </div>
                     </div>
                 </div>
@@ -159,9 +158,7 @@
                 url: '@Url.Action("CheckEmailAsync")?email=' + email,
                 cache: false,
                 success: function (response) {
-                    var flag = response.message == 'False';
-                    var userId = response.data;
-                    console.log(response);
+                    var flag = response.isAspnetuser;
                     if (flag) {
                         // Show the username and password fields
                         $("#UserName").show();
@@ -177,4 +174,5 @@
             });
         });
     });
+
 </script>

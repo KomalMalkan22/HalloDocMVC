@@ -1,4 +1,4 @@
-﻿namespace Hallodoc.Models
+﻿namespace HalloDoc.Models
 {
     public static class CV
     {

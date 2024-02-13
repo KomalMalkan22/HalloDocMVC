@@ -1,21 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     Layout = "_LayoutPatientDashboard";
     ViewData["Title"] = "Dashboard";
 }
 
-@*@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     var userId = HttpContextAccessor.HttpContext.Session.GetString("UserID");
+
 }
-*@
-
-@model IEnumerable<HalloDoc.DataModels.Request>
-
+<partial name="../_PartialViews/_PartialCreateNewRequest.cshtml" />
 <div class="tab-pane fade show active d-flex justify-content-center" id="nav-tab1" role="tabpanel" aria-labelledby="nav-tab1-tab" tabindex="0">
     <div class="d-flex flex-column align-self-center m-2 w-75 medicalHistory">
         <strong class="fs-4">
@@ -24,31 +19,39 @@
         <div class="shadow bg-white rounded m-2 p-2">
             <div class="d-flex justify-content-end mb-2">
                 <i class="d-block d-sm-none fa-solid fa-plus text-info border rounded border-info mx-3 mx-xs-2 my-1 p-2"></i>
-                <partial name="../_PartialViews/_PartialCreateNewRequest.cshtml" />
                 <button type="button" data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-none d-sm-block shadow-none btn border border-info text-info mx-3  mx-xs-2">Create New Request</button>
             </div>
             <table class="table">
                 <thead style="background-color: #e9ecef;">
                     <tr>
-                        <th class="col-3">Created Date</th>
-                        <th class="col-3">Current Status</th>
-                        <th class="col">Document</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Current Status</th>
+                        <th scope="col">Document</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (var item in ViewBag.listofrequest)
                     {
                         <tr>
-                            <td class="col-3">
-                                @Html.Raw(item.Createddate.ToString("MMM d, yyyy"))
-                            </td>
-                            <td class="col-3">
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </td>
-                            <td class="col">
-                                Document
+                            <td scope="row"> @item.Createddate.ToString("MMM d, yyyy")</td>
+                            <td>@item.Status</td>
+                            <td>
+                                @{
+                                    if (ViewBag.docidlist.Contains(item.Requestid))
+                                    {
+                                        <a asp-action="DocumentInfo" asp-controller="Dashboard" asp-route-id="@item.Requestid" class="btn btn-outline-info btn-sm document-button">
+                                            Document
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                                 class="bi bi-arrow-down-circle mx-1" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                                            </svg>
+                                        </a>
+                                    }
+                                }
                             </td>
                         </tr>
+
                     }
                 </tbody>
             </table>
