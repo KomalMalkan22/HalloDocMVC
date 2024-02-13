@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KxO7ViWhBRAQbbFN7JGKWt7icruLOFYpxD58GR/g+qo=",
+  "Hash": "mvEsD4/tE9BgIT3Q4NF2kgJhv99jvf2fBltu3Njy+10=",
   "Source": "HalloDoc",
   "BasePath": "_content/HalloDoc",
   "Mode": "Default",
@@ -1171,6 +1171,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Session - ASP .net core- Entity Framework with  + PostgreSQL integration .pptx",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/Session - ASP .net core- Entity Framework with  + PostgreSQL integration .pptx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Session - ASP .net core- Entity Framework with  + PostgreSQL integration .pptx"
+    },
+    {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\SRS-23-24-Trainees-30Jan.pdf",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/SRS-23-24-Trainees-30Jan.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\SRS-23-24-Trainees-30Jan.pdf"
     }
   ]
 }

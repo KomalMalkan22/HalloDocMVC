@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\HalloDoc.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\SRS-23-24-Trainees-30Jan.pdf",
+      "PackagePath": "staticwebassets\\Upload\\SRS-23-24-Trainees-30Jan.pdf"
+    },
+    {
+      "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Session - ASP .net core- Entity Framework with  + PostgreSQL integration .pptx",
+      "PackagePath": "staticwebassets\\Upload\\Session - ASP .net core- Entity Framework with  + PostgreSQL integration .pptx"
+    },
+    {
       "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },

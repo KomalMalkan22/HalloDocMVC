@@ -1,0 +1,32 @@
+﻿<style>
+    .btnMe:active, .btnElse:active{
+        background-color: #0DCAF0;
+        color: white;
+    }
+</style>
+<body>
+    <div class="modal fade" id="createNewRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create New Request</h5>
+                    <i class="fa-solid fa-xmark" data-bs-dismiss="modal"></i>
+                </div>
+                <div class="modal-body">
+                    <p class="text-secondary">Here, I want to create new request for ... </p>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn border-info me-2 btnMe">Me</a>
+                        <a class="btn border-info btnElse">Someone Else</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info text-white shadow-none">Continue</button>
+                    <button type="button" class="btn border-info shadow-none" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/css/bootstrap.min.css"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>

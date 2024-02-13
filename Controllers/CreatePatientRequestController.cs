@@ -17,7 +17,7 @@ namespace HalloDoc.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreatePatientRequestModel createPatientRequest)
-        {    
+        {
             var isUserExist = _context.Users.FirstOrDefault(x => x.Email == createPatientRequest.Email);
 
             if (isUserExist == null)
@@ -46,22 +46,13 @@ namespace HalloDoc.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
             }
-
-            var Request = new Request();
             var User = new User();
 
-            if(isUserExist == null)
-            {
-                Request.Userid = User.Userid;
-            }
-            else
-            {
-                Request.Userid = isUserExist.Userid;
-            }
             var request = new Request()
             {
                 Requesttypeid = 2,
-                Userid = User.Userid,
+                Status = 1,
+                Userid = isUserExist == null ? User.Userid : isUserExist.Userid,
                 Firstname = createPatientRequest.FirstName,
                 Lastname = createPatientRequest.LastName,
                 Email = createPatientRequest.Email,
@@ -87,6 +78,34 @@ namespace HalloDoc.Controllers
             };
             _context.Requestclients.Add(requestclient);
             await _context.SaveChangesAsync();
+
+            if (createPatientRequest.UploadFile != null)
+            {
+                string FilePath = "wwwroot\\Upload";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string fileNameWithPath = Path.Combine(path, createPatientRequest.UploadFile.FileName);
+                createPatientRequest.UploadImage = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + createPatientRequest.UploadFile.FileName;
+
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    createPatientRequest.UploadFile.CopyTo(stream);
+                }
+
+                var requestwisefile = new Requestwisefile()
+                {
+                    Request = request,
+                    Requestid = request.Requestid,
+                    Filename = createPatientRequest.UploadImage,
+                    Createddate = DateTime.Now
+                };
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            }
 
             return View("../Request/SubmitRequestScreen");
 

@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-/* Modal */
+/* Confirmation Modal */
 
 var targetModal = new bootstrap.Modal(document.getElementById('targetModal', {}))
 targetModal.show();
@@ -14,12 +14,11 @@ dismissModal.addEventListener("click", () => {
 })
 
 /* Choose File */
-
 $("#files").change(function () {
-    console.log("function");
     filename = this.files[0].name;
-    $("#chooseFile").text(filename);
-})
+    console.log(filename);
+    $("#choosenfile").text(filename);
+});
 
 /* Password */
 

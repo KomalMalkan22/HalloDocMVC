@@ -22,11 +22,6 @@ namespace HalloDoc.Controllers
             return View();
         }
 
-        public IActionResult PatientDashboard()
-        {
-            return View();
-        }
-
         public IActionResult ResetPassword()
         {
             return View();

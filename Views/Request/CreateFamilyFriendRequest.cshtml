@@ -7,7 +7,7 @@
 }
 @model CreateFamilyFriendRequestModel
 
-<partial name="../Shared/ConfirmationModel.cshtml"/>
+<partial name="../_PartialViews/_PartialConfirmationModel.cshtml" />
 <div class="d-flex flex-column align-self-center m-3">
     <div class="d-flex flex-column align-self-center m-3">
     <div class="d-flex justify-content-end pe-2">
@@ -18,7 +18,7 @@
         </a>
     </div>
     <div class="shadow bg-white rounded m-2 p-2">
-        <form asp-controller="CreateFamilyFriendRequest" asp-action="Create" method="post">
+        <form asp-controller="CreateFamilyFriendRequest" asp-action="Create" method="post" enctype="multipart/form-data">
             <!-- Family / Friend Information -->
             <strong class="fs-5 p-2">Family / Friend Information</strong>
             <div class="row p-2">
@@ -136,13 +136,13 @@
                     <div class="col-12 border rounded">
                         <div class="d-flex justify-content-between">
                             <span id="choosenfile" class="p-3">No file chosen</span>
-                            <button class="bg-info btn btn-lg" onclick="document.getElementById('choosenfile').click()">
-                                <lable for="files" class="btn text-white">
+                            <a class="btn bg-info btn btn-lg" onclick="document.getElementById('files').click()">
+                                <span for="files" class="btn text-white">
                                     <i class="fa fa-cloud-upload"></i>
-                                    <span class="d-none d-md-inline">Upload</span>
-                                </lable>
-                            </button>
-                            <input id="files" type="file" class="d-none">
+                                    Upload
+                                </span>
+                            </a>
+                            <input asp-for="UploadFile" id="files" type="file" class="d-none">
                         </div>
                     </div>
                 </div>

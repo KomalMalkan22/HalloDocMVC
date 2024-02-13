@@ -5,6 +5,7 @@
 
 @model CreatePatientRequestModel
 
+<partial name="../_PartialViews/_PartialConfirmationModel.cshtml" />
 <div class="d-flex flex-column align-self-center m-3">
     <div class="d-flex flex-column align-self-center m-3">
         <div class="d-flex justify-content-end pe-2">
@@ -17,7 +18,7 @@
         <div class="shadow bg-white rounded m-2 p-2">
             <!-- Patient Information -->
             <strong class="fs-5 p-2">Patient Information</strong>
-            <form asp-controller="CreatePatientRequest" asp-action="Create" method="post">
+            <form asp-controller="CreatePatientRequest" asp-action="Create" method="post" enctype="multipart/form-data">
                 
                 <div class="row p-2">
                     <div class="col-12">
@@ -28,20 +29,20 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter First Name">
-                            <label for="floatingInput">First Name</label>
+                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="FirstName" placeholder="Enter First Name">
+                            <label for="FirstName">First Name</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Last Name">
-                            <label for="floatingInput">Last Name</label>
+                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="LastName" placeholder="Enter Last Name">
+                            <label for="LastName">Last Name</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="floatingInput" placeholder="Enter Date of Birth">
-                            <label for="floatingInput">Date of Birth</label>
+                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="DateOfBirth" placeholder="Enter Date of Birth">
+                            <label for="DateOfBirth">Date of Birth</label>
                         </div>
                     </div>
                 </div>
@@ -52,8 +53,8 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
-                            <label for="email">Email</label>
+                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" id="Email" placeholder="name@example.com">
+                            <label for="Email">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6 phone">
@@ -63,14 +64,14 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="UserName" type="text" class="form-control shadow-none" id="username" placeholder="UserName">
-                            <label for="floatingInput">UserName</label>
+                            <input asp-for="UserName" type="text" class="form-control shadow-none" id="UserName" placeholder="UserName">
+                            <label for="UserName">UserName</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="password" placeholder="Password">
-                            <label for="floatingInput">Password</label>
+                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="PassWord" placeholder="Password">
+                            <label for="PassWord">Password</label>
                         </div>
                     </div>
                 </div>
@@ -81,32 +82,32 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Street" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Street">
-                            <label for="floatingInput">Street</label>
+                            <input asp-for="Street" type="text" class="form-control shadow-none" id="Street" placeholder="Enter Street">
+                            <label for="Street">Street</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="City" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter City">
-                            <label for="floatingInput">City</label>
+                            <input asp-for="City" type="text" class="form-control shadow-none" id="City" placeholder="Enter City">
+                            <label for="City">City</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="State" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter State">
-                            <label for="floatingInput">State</label>
+                            <input asp-for="State" type="text" class="form-control shadow-none" id="State" placeholder="Enter State">
+                            <label for="State">State</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="ZipCode" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Zip Code">
-                            <label for="floatingInput">Zip Code</label>
+                            <input asp-for="ZipCode" type="text" class="form-control shadow-none" id="ZipCode" placeholder="Enter Zip Code">
+                            <label for="ZipCode">Zip Code</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Room / Suite">
-                            <label for="floatingInput">Room / Suite (Optional)</label>
+                            <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="RoomSuite" placeholder="Enter Room / Suite">
+                            <label for="RoomSuite">Room / Suite (Optional)</label>
                         </div>
                     </div>
                 </div>
@@ -119,13 +120,13 @@
                         <div class="col-12 border rounded">
                             <div class="d-flex justify-content-between">
                                 <span id="choosenfile" class="p-3">No file chosen</span>
-                                <button class="bg-info btn btn-lg" onclick="document.getElementById('choosenfile').click()">
-                                    <lable for="files" class="btn text-white">
+                                <a class="btn bg-info btn btn-lg" onclick="document.getElementById('files').click()">
+                                    <span for="files" class="btn text-white">
                                         <i class="fa fa-cloud-upload"></i>
-                                        <span class="d-none d-md-inline">Upload</span>
-                                    </lable>
-                                </button>
-                                <input id="files" type="file" class="d-none">
+                                        Upload
+                                    </span>
+                                </a>
+                                <input asp-for="UploadFile" id="files" type="file" class="d-none">
                             </div>
                         </div>
                     </div>
@@ -140,6 +141,7 @@
     </div>
 </div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
@@ -154,7 +156,7 @@
             var email = $("#email").val();
             $.ajax({
                 type: "POST",
-                url: '@Url.Action("CheckEmail")?email=' + email,
+                url: '@Url.Action("CheckEmailAsync")?email=' + email,
                 cache: false,
                 success: function (response) {
                     var flag = response.message == 'False';
@@ -162,11 +164,11 @@
                     console.log(response);
                     if (flag) {
                         // Show the username and password fields
-                        $("#username").show();
-                        $("#password").show();
+                        $("#UserName").show();
+                        $("#PassWord").show();
                     } else {
-                        $("#username").hide();
-                        $("#password").hide();
+                        $("#UserName").hide();
+                        $("#PassWord").hide();
                     }
                 },
                 error: function () {
@@ -176,4 +178,3 @@
         });
     });
 </script>
-<script src="~/js/site.js"></script>

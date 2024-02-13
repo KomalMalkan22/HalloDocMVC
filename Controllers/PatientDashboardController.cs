@@ -23,17 +23,17 @@ namespace HalloDoc.Controllers
             //    List<DataModels.Request> Request = _context.Requests.Where(r => r.Userid == UserIDForRequest.Userid).ToList();
             //    List<int> ids = new List<int>();
 
-            //    //foreach (var request in Request)
-            //    //{
+            //    foreach (var request in Request)
+            //    {
 
-            //    //    var doc = _context.Requestwisefiles.Where(r => r.Requestid == request.Requestid).FirstOrDefault();
-            //    //    if (doc != null)
-            //    //    {
-            //    //        ids.Add(request.Requestid);
-            //    //    }
-            //    //}
-            //    //ViewBag.docidlist = ids;
-            //    //ViewBag.listofrequest = Request;
+            //        var doc = _context.Requestwisefiles.Where(r => r.Requestid == request.Requestid).FirstOrDefault();
+            //        if (doc != null)
+            //        {
+            //            ids.Add(request.Requestid);
+            //        }
+            //    }
+            //    ViewBag.docidlist = ids;
+            //    ViewBag.listofrequest = Request;
             //}
             return _context.Requests != null ?
                         View(await _context.Requests.ToListAsync()) :

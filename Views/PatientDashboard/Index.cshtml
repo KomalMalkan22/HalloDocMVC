@@ -24,7 +24,8 @@
         <div class="shadow bg-white rounded m-2 p-2">
             <div class="d-flex justify-content-end mb-2">
                 <i class="d-block d-sm-none fa-solid fa-plus text-info border rounded border-info mx-3 mx-xs-2 my-1 p-2"></i>
-                <a class="d-none d-sm-block btn border border-info text-info mx-3  mx-xs-2">Create New Request</a>
+                <partial name="../_PartialViews/_PartialCreateNewRequest.cshtml" />
+                <button type="button" data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-none d-sm-block shadow-none btn border border-info text-info mx-3  mx-xs-2">Create New Request</button>
             </div>
             <table class="table">
                 <thead style="background-color: #e9ecef;">
@@ -39,13 +40,13 @@
                     {
                         <tr>
                             <td class="col-3">
-                                @Html.DisplayFor(modelItem => item.Createddate)
+                                @Html.Raw(item.Createddate.ToString("MMM d, yyyy"))
                             </td>
                             <td class="col-3">
                                 @Html.DisplayFor(modelItem => item.Status)
                             </td>
                             <td class="col">
-                                Documents
+                                Document
                             </td>
                         </tr>
                     }
