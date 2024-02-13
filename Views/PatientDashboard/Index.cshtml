@@ -5,6 +5,17 @@
     Layout = "_LayoutPatientDashboard";
     ViewData["Title"] = "Dashboard";
 }
+
+@*@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserID");
+}
+*@
+
+@model IEnumerable<HalloDoc.DataModels.Request>
+
 <div class="tab-pane fade show active d-flex justify-content-center" id="nav-tab1" role="tabpanel" aria-labelledby="nav-tab1-tab" tabindex="0">
     <div class="d-flex flex-column align-self-center m-2 w-75 medicalHistory">
         <strong class="fs-4">
@@ -18,27 +29,26 @@
             <table class="table">
                 <thead style="background-color: #e9ecef;">
                     <tr>
-                        <th scope="col">Created Date</th>
-                        <th scope="col">Current Status</th>
-                        <th scope="col">Document</th>
+                        <th class="col-3">Created Date</th>
+                        <th class="col-3">Current Status</th>
+                        <th class="col">Document</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-3">
+                                @Html.DisplayFor(modelItem => item.Createddate)
+                            </td>
+                            <td class="col-3">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td class="col">
+                                Documents
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

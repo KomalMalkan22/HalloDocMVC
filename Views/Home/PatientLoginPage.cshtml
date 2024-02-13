@@ -6,8 +6,6 @@
     ViewData["Title"] = "Login Page";
 }
 
-@model HalloDoc.DataModels.Aspnetuser
-
 <div class="align-self-center w-50">
     <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
         <strong class="text-info">
@@ -15,16 +13,17 @@
         </strong>
     </a>
     <h3 class="py-3">Login To Your Account</h3>
+    @ViewData["error"]
     <form asp-controller="UserLogin" asp-action="Login" method="post">
         <div class="form-floating mb-4 email">
-            <input asp-for="Email" type="email" class="form-control shadow-none " id="floatingInput" placeholder="name@example.com">
+            <input name="Email" type="email" class="form-control shadow-none " id="floatingInput" placeholder="name@example.com">
             <label class="bg-transparent" for="floatingInput">Email</label>
             <button type="button" class="btn btn-light">
                 <i class="icon fa-solid fa-user field-icon position-relative"></i>
             </button>
         </div>
         <div class="form-floating mb-4 password">
-            <input asp-for="Passwordhash" type="password" class="form-control shadow-none eyehide " id="floatingPassword" placeholder="Password">
+            <input name="Passwordhash" type="password" class="form-control shadow-none eyehide " id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
             <button type="button" class="btn btn-light" onclick="passtoggle()">
                 <i class="showImg fa fa-eye-slash"></i>

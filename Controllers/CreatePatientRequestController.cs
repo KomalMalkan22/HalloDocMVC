@@ -18,8 +18,10 @@ namespace HalloDoc.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreatePatientRequestModel createPatientRequest)
         {    
-            //if (createPatientRequest.UserName != null && createPatientRequest.PassWord != null)
-            //{
+            var isUserExist = _context.Users.FirstOrDefault(x => x.Email == createPatientRequest.Email);
+
+            if (isUserExist == null)
+            {
                 Guid g = Guid.NewGuid();
                 var aspnetuser = new Aspnetuser()
                 {
@@ -43,39 +45,50 @@ namespace HalloDoc.Controllers
                 };
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
+            }
 
-                var request = new Request()
-                {
-                    Requesttypeid = 2,
-                    Userid = user.Userid,
-                    Firstname = createPatientRequest.FirstName,
-                    Lastname = createPatientRequest.LastName,
-                    Email = createPatientRequest.Email,
-                    Phonenumber = createPatientRequest.PhoneNumber,
-                    Isurgentemailsent = new BitArray(1),
-                    Createddate = DateTime.Now
-                };
-                _context.Requests.Add(request);
-                await _context.SaveChangesAsync();
+            var Request = new Request();
+            var User = new User();
 
-                var requestclient = new Requestclient()
-                {
-                    Requestid = request.Requestid,
-                    Firstname = createPatientRequest.FirstName,
-                    Lastname = createPatientRequest.LastName,
-                    Street = createPatientRequest.Street,
-                    Email = createPatientRequest.Email,
-                    Phonenumber = createPatientRequest.PhoneNumber,
-                    Notes = createPatientRequest.Symptoms,
-                    Strmonth = createPatientRequest.DateOfBirth.ToString("MMMM"),
-                    Intdate = createPatientRequest.DateOfBirth.Day,
-                    Intyear = createPatientRequest.DateOfBirth.Year
-                };
-                _context.Requestclients.Add(requestclient);
-                await _context.SaveChangesAsync();
+            if(isUserExist == null)
+            {
+                Request.Userid = User.Userid;
+            }
+            else
+            {
+                Request.Userid = isUserExist.Userid;
+            }
+            var request = new Request()
+            {
+                Requesttypeid = 2,
+                Userid = User.Userid,
+                Firstname = createPatientRequest.FirstName,
+                Lastname = createPatientRequest.LastName,
+                Email = createPatientRequest.Email,
+                Phonenumber = createPatientRequest.PhoneNumber,
+                Isurgentemailsent = new BitArray(1),
+                Createddate = DateTime.Now
+            };
+            _context.Requests.Add(request);
+            await _context.SaveChangesAsync();
 
-                return View("../Request/SubmitRequestScreen");
-            //}
+            var requestclient = new Requestclient()
+            {
+                Requestid = request.Requestid,
+                Firstname = createPatientRequest.FirstName,
+                Lastname = createPatientRequest.LastName,
+                Street = createPatientRequest.Street,
+                Email = createPatientRequest.Email,
+                Phonenumber = createPatientRequest.PhoneNumber,
+                Notes = createPatientRequest.Symptoms,
+                Strmonth = createPatientRequest.DateOfBirth.ToString("MMMM"),
+                Intdate = createPatientRequest.DateOfBirth.Day,
+                Intyear = createPatientRequest.DateOfBirth.Year
+            };
+            _context.Requestclients.Add(requestclient);
+            await _context.SaveChangesAsync();
+
+            return View("../Request/SubmitRequestScreen");
 
         }
         [HttpPost]
