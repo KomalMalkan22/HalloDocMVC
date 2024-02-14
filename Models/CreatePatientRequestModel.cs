@@ -1,4 +1,6 @@
-﻿namespace HalloDoc.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HalloDoc.Models
 {
     public class CreatePatientRequestModel
     {
@@ -9,6 +11,8 @@
         public string Email { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
+        [Compare("PassWord", ErrorMessage = "Password and confirm password must match")]
+        public string ConfirmPassword { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Street { get; set; }

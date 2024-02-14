@@ -28,7 +28,8 @@ namespace HalloDoc.Controllers
 
                     Id = g.ToString(),
                     Username = createPatientRequest.FirstName,
-                    Passwordhash = createPatientRequest.LastName,
+                    Passwordhash = createPatientRequest.PassWord,
+                    Email = createPatientRequest.Email,
                     CreatedDate = DateTime.Now
                 };
                 _context.Aspnetusers.Add(aspnetuser);
@@ -89,7 +90,7 @@ namespace HalloDoc.Controllers
                     Directory.CreateDirectory(path);
                 }
                 string fileNameWithPath = Path.Combine(path, createPatientRequest.UploadFile.FileName);
-                createPatientRequest.UploadImage = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + createPatientRequest.UploadFile.FileName;
+                createPatientRequest.UploadImage = createPatientRequest.UploadFile.FileName;
 
                 using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                 {
@@ -128,6 +129,7 @@ namespace HalloDoc.Controllers
                 isAspnetuser = aspnetuser == null
             });
         }
+
         public IActionResult Index()
         {
             return View("../Request/CreatePatientRequest");

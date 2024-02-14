@@ -23,7 +23,7 @@ namespace HalloDoc.Controllers
                 if (UserIDForRequest != null)
                 {
                     List<DataModels.Request> Request = _context.Requests.Where(r => r.Userid == UserIDForRequest.Userid).ToList();
-                    List<int> ids = new List<int>();
+                    List<int> ids = new();
 
                     foreach (var request in Request)
                     {
@@ -35,7 +35,7 @@ namespace HalloDoc.Controllers
                         }
                     }
                     ViewBag.docidlist = ids;
-                    ViewBag.listofrequest = Request;
+                    ViewBag.list = Request;
 
                 }
                 return View();
@@ -45,6 +45,53 @@ namespace HalloDoc.Controllers
                 return View("../Home/Index");
             }
 
+        }
+        public IActionResult ViewDocuments(int? id)
+        {
+
+            List<Request> Request = _context.Requests.Where(r => r.Requestid == id).ToList();
+            ViewBag.requestinfo = Request;
+            List<Requestwisefile> DocList = _context.Requestwisefiles.Where(r => r.Requestid == id).ToList();
+            ViewBag.DocList = DocList;
+            return View("ViewDocuments");
+        }
+        public IActionResult UploadDoc(int Requestid, IFormFile? UploadFile)
+        {
+            string UploadImage;
+            if (UploadFile != null)
+            {
+                string FilePath = "wwwroot\\Upload";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                string fileNameWithPath = Path.Combine(path, UploadFile.FileName);
+                UploadImage = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + UploadFile.FileName;
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    UploadFile.CopyTo(stream)
+;
+                }
+                var requestwisefile = new Requestwisefile
+                {
+                    Requestid = Requestid,
+                    Filename = UploadFile.FileName,
+                    Createddate = DateTime.Now,
+                };
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("ViewDocuments", new { id = Requestid });
+        }
+
+        public IActionResult Profile()
+        {
+            return View("../PatientDashboard/Profile");
+        }
+
+        public IActionResult ReviewAgreement()
+        {
+            return View("../PatientDashboard/ReviewAgreement");
         }
     }
 }

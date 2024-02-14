@@ -57,7 +57,7 @@ i.fa.fa-eye {
     }
 
     .wrapper {
-        background-image: url("~/images/11116016_415.jpg");
+        background-image: url(../images/11116016_415.jpg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -167,7 +167,7 @@ i.fa.fa-eye {
     color: #0dcaf0;
 }
 
-.form-floating input:focus, .form-floating textarea:focus {
+.form-floating input:focus, .form-floating textarea:focus .form-floating select:focus {
     border: 2px solid #0dcaf0 !important;
 }
 

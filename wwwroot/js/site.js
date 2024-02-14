@@ -4,7 +4,6 @@
 // Write your JavaScript code.
 
 /* Confirmation Modal */
-
 var targetModal = new bootstrap.Modal(document.getElementById('targetModal', {}))
 targetModal.show();
 

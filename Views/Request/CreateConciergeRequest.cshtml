@@ -2,7 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "_Layout";
+    Layout = "_LayoutRequest";
     ViewData["Title"] = "Create Concierge Request";
 }
 
@@ -25,14 +25,14 @@
             <div class="row p-2">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_FirstName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Your First Name">
-                        <label for="floatingInput">Your First Name</label>
+                        <input asp-for="C_FirstName" type="text" class="form-control shadow-none" id="C_FirstName" placeholder="Your First Name">
+                        <label for="C_FirstName">Your First Name</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_LastName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Your Last Name">
-                        <label for="floatingInput">Your Last Name</label>
+                        <input asp-for="C_LastName" type="text" class="form-control shadow-none" id="C_LastName" placeholder="Your Last Name">
+                        <label for="C_LastName">Your Last Name</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
@@ -42,14 +42,14 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_Email" type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Your Email</label>
+                        <input asp-for="C_Email" type="email" class="form-control shadow-none" id="C_Email" placeholder="name@example.com">
+                        <label for="C_Email">Your Email</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_Property" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Room / Suite">
-                        <label for="floatingInput">Hotel / Property Name</label>
+                        <input asp-for="C_Property" type="text" class="form-control shadow-none" id="C_Property" placeholder="Enter Room / Suite">
+                        <label for="C_Property">Hotel / Property Name</label>
                     </div>
                 </div>
             </div>
@@ -58,26 +58,26 @@
             <div class="row p-2">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_Street" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Street">
-                        <label for="floatingInput">Street</label>
+                        <input asp-for="C_Street" type="text" class="form-control shadow-none" id="C_Street" placeholder="Enter Street">
+                        <label for="C_Street">Street</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_City" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter City">
-                        <label for="floatingInput">City</label>
+                        <input asp-for="C_City" type="text" class="form-control shadow-none" id="C_City" placeholder="Enter City">
+                        <label for="C_City">City</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_State" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter State">
-                        <label for="floatingInput">State</label>
+                        <input asp-for="C_State" type="text" class="form-control shadow-none" id="C_State" placeholder="Enter State">
+                        <label for="C_State">State</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="C_ZipCode" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Zip Code">
-                        <label for="floatingInput">Zip Code</label>
+                        <input asp-for="C_ZipCode" type="text" class="form-control shadow-none" id="C_ZipCode" placeholder="Enter Zip Code">
+                        <label for="C_ZipCode">Zip Code</label>
                     </div>
                 </div>
             </div>
@@ -86,26 +86,26 @@
             <div class="row p-2">
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <textarea asp-for="Symptoms" class="form-control shadow-none" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Enter Brief Details Of Symptoms</label>
+                            <textarea asp-for="Symptoms" class="form-control shadow-none" placeholder="Leave a comment here" id="Symptoms" style="height: 100px"></textarea>
+                            <label for="Symptoms">Enter Brief Details Of Symptoms</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter First Name">
-                            <label for="floatingInput">First Name</label>
+                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="FirstName" placeholder="Enter First Name">
+                            <label for="FirstName">First Name</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Last Name">
-                            <label for="floatingInput">Last Name</label>
+                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="LastName" placeholder="Enter Last Name">
+                            <label for="LastName">Last Name</label>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="floatingInput" placeholder="Enter Date of Birth">
-                            <label for="floatingInput">Date of Birth</label>
+                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="DateOfBirth" placeholder="Enter Date of Birth">
+                            <label for="DateOfBirth">Date of Birth</label>
                         </div>
                     </div>
                 </div>
@@ -114,8 +114,8 @@
             <div class="row p-2">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="Email" type="email" class="form-control shadow-none" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
+                        <input asp-for="Email" type="email" class="form-control shadow-none" id="Email" placeholder="name@example.com">
+                        <label for="Email">Email</label>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 phone">
@@ -129,8 +129,8 @@
             <div class="row p-2">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-floating mb-3">
-                        <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="floatingInput" placeholder="Enter Room / Suite">
-                        <label for="floatingInput">Room / Suite (Optional)</label>
+                        <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="RoomSuite" placeholder="Enter Room / Suite">
+                        <label for="RoomSuite">Room / Suite (Optional)</label>
                     </div>
                 </div>
             </div>

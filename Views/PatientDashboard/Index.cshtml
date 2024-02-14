@@ -3,13 +3,6 @@
     ViewData["Title"] = "Dashboard";
 }
 
-@using Microsoft.AspNetCore.Http
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-
-@{
-    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserID");
-
-}
 <partial name="../_PartialViews/_PartialCreateNewRequest.cshtml" />
 <div class="tab-pane fade show active d-flex justify-content-center" id="nav-tab1" role="tabpanel" aria-labelledby="nav-tab1-tab" tabindex="0">
     <div class="d-flex flex-column align-self-center m-2 w-75 medicalHistory">
@@ -18,44 +11,81 @@
         </strong>
         <div class="shadow bg-white rounded m-2 p-2">
             <div class="d-flex justify-content-end mb-2">
-                <i class="d-block d-sm-none fa-solid fa-plus text-info border rounded border-info mx-3 mx-xs-2 my-1 p-2"></i>
+                <i data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-block d-sm-none fa-solid fa-plus text-info border rounded border-info mx-3 mx-xs-2 my-1 p-2"></i>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-none d-sm-block shadow-none btn border border-info text-info mx-3  mx-xs-2">Create New Request</button>
             </div>
-            <table class="table">
-                <thead style="background-color: #e9ecef;">
-                    <tr>
-                        <th scope="col">Created Date</th>
-                        <th scope="col">Current Status</th>
-                        <th scope="col">Document</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in ViewBag.listofrequest)
-                    {
+            <div class="d-none d-sm-block">
+                <table class="table">
+                    <thead style="background-color: #e9ecef;">
                         <tr>
-                            <td scope="row"> @item.Createddate.ToString("MMM d, yyyy")</td>
-                            <td>@item.Status</td>
-                            <td>
-                                @{
-                                    if (ViewBag.docidlist.Contains(item.Requestid))
-                                    {
-                                        <a asp-action="DocumentInfo" asp-controller="Dashboard" asp-route-id="@item.Requestid" class="btn btn-outline-info btn-sm document-button">
-                                            Document
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-                                                 class="bi bi-arrow-down-circle mx-1" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
-                                            </svg>
-                                        </a>
-                                    }
-                                }
-                            </td>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Current Status</th>
+                            <th scope="col">Document</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.list)
+                        {
+                            <tr>
+                                <td scope="row"> @item.Createddate.ToString("MMM d, yyyy")</td>
+                                <td>@item.Status</td>
+                                <td>
+                                    @{
+                                        if (ViewBag.docidlist.Contains(item.Requestid))
+                                        {
+                                            <a asp-action="ViewDocuments" asp-controller="PatientDashboard" asp-route-id="@item.Requestid" class="btn btn-outline-info btn-sm document-button shadow-none">
+                                                Document
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                                     class="bi bi-arrow-down-circle mx-1" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                                                </svg>
+                                            </a>
+                                        }
+                                    }
+                                </td>
+                            </tr>
 
-                    }
-                </tbody>
-            </table>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-block d-sm-none">
+                @foreach (var item in ViewBag.list)
+                {
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <i class="fa-solid fa-clock pe-2"></i>
+                                    <strong>Created Date : </strong>
+                                    @item.Createddate.ToString("MMM d, yyyy")
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>@item.Status</div>
+                                    <div>
+                                        @{
+                                            if (ViewBag.docidlist.Contains(item.Requestid))
+                                            {
+                                                <a asp-action="ViewDocuments" asp-controller="PatientDashboard" asp-route-id="@item.Requestid" class="btn btn-outline-info btn-sm document-button shadow-none">
+                                                    Document
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                                            class="bi bi-arrow-down-circle mx-1" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                                                    </svg>
+                                                </a>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>
-<div class="tab-pane fade" id="nav-tab2" role="tabpanel" aria-labelledby="nav-tab2-tab" tabindex="0">Aspernatur laborum labore itaque illo beatae nam, voluptas eligendi fugiat commodi incidunt non sit consectetur, eaque cumque animi ullam. Et, animi odit voluptate, id iusto unde ipsa excepturi natus ratione repellendus commodi magni molestiae doloremque earum voluptatem minima. Dignissimos deserunt culpa beatae eveniet, voluptatibus itaque quia numquam dicta quibusdam optio minima esse maiores. Odit culpa magnam, provident praesentium excepturi nisi illum tenetur obcaecati accusantium, porro eum iusto! Amet fugit ipsa veniam. Eius, cum! Mollitia eos, excepturi sequi atque impedit fuga quisquam voluptatem sapiente non ratione iure ipsam repudiandae tempore, debitis obcaecati possimus.</div>

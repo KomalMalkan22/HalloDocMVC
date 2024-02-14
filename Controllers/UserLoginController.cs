@@ -21,14 +21,14 @@ namespace HalloDoc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string Email, string Passwordhash)
         {
-            NpgsqlConnection connection = new NpgsqlConnection("Server=localhost;Database=HalloDoc;User Id=postgres;Password=komal123;Include Error Detail=True");
+            NpgsqlConnection connection = new("Server=localhost;Database=HalloDoc;User Id=postgres;Password=komal123;Include Error Detail=True");
             string query = "SELECT * FROM aspnetusers WHERE email = @Email AND passwordhash = @Passwordhash";
             connection.Open();
-            NpgsqlCommand command = new NpgsqlCommand(query, connection);
+            NpgsqlCommand command = new(query, connection);
             command.Parameters.AddWithValue("@Email", Email);
             command.Parameters.AddWithValue("@Passwordhash", Passwordhash);
             NpgsqlDataReader reader = command.ExecuteReader();
-            DataTable dt = new DataTable();
+            DataTable dt = new();
             dt.Load(reader);
             int rows = dt.Rows.Count;
             if (rows > 0)
