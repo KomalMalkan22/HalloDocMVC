@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\HalloDoc.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\.net-Whole-Plane-2024.pdf",
+      "PackagePath": "staticwebassets\\Upload\\.net-Whole-Plane-2024.pdf"
+    },
+    {
+      "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Demo.html",
+      "PackagePath": "staticwebassets\\Upload\\Demo.html"
+    },
+    {
       "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Komal_HalloDocDB.sql",
       "PackagePath": "staticwebassets\\Upload\\Komal_HalloDocDB.sql"
+    },
+    {
+      "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Plan_till_1Feb2024.pdf",
+      "PackagePath": "staticwebassets\\Upload\\Plan_till_1Feb2024.pdf"
     },
     {
       "Id": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\SRS-23-24-Trainees-14Feb24.pdf",

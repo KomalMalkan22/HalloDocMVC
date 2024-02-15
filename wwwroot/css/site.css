@@ -167,7 +167,7 @@ i.fa.fa-eye {
     color: #0dcaf0;
 }
 
-.form-floating input:focus, .form-floating textarea:focus .form-floating select:focus {
+.form-floating input:focus, .form-floating textarea:focus, .form-floating select:focus {
     border: 2px solid #0dcaf0 !important;
 }
 
