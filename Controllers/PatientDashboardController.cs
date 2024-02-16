@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HalloDoc.Controllers
 {
+    [CheckAccess]
     public class PatientDashboardController : Controller
     {
         private readonly HalloDocContext _context;
@@ -14,6 +15,27 @@ namespace HalloDoc.Controllers
         {
             _context = context;
         }
+
+        public enum Status
+        {
+            Unassigned = 1,
+            Accepted,
+            Cancelled,
+            Reserving,
+            MDEnRoute,
+            MDOnSite,
+            FollowUp,
+            Closed,
+            Locked,
+            Declined,
+            Consult,
+            Clear,
+            CancelledByProvider,
+            CCUploadedByClient,
+            CCApprovedByAdmin
+        }
+
+        #region Index
         public async Task<IActionResult> Index()
         {
             if (CV.UserID() != null)
@@ -46,6 +68,9 @@ namespace HalloDoc.Controllers
             }
 
         }
+        #endregion Index
+
+        #region ViewDocuments
         public IActionResult ViewDocuments(int? id)
         {
 
@@ -55,6 +80,9 @@ namespace HalloDoc.Controllers
             ViewBag.DocList = DocList;
             return View("ViewDocuments");
         }
+        #endregion ViewDocuments
+
+        #region UploadDocuments
         public IActionResult UploadDoc(int Requestid, IFormFile? UploadFile)
         {
             string UploadImage;
@@ -83,11 +111,7 @@ namespace HalloDoc.Controllers
 
             return RedirectToAction("ViewDocuments", new { id = Requestid });
         }
-
-        public IActionResult Profile()
-        {
-            return View("../PatientDashboard/Profile");
-        }
+        #endregion UploadDocuments
 
         public IActionResult ReviewAgreement()
         {

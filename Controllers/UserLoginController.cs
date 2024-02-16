@@ -13,10 +13,15 @@ namespace HalloDoc.Controllers
         {
             _context = context;
         }
+
+        #region Index
         public IActionResult Index()
         {
             return View("../Home/PatientLoginPage");
         }
+        #endregion Index
+
+        #region Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string Email, string Passwordhash)
@@ -46,10 +51,14 @@ namespace HalloDoc.Controllers
                 return View("../Home/PatientLoginPage");
             }
         }
+        #endregion Login
+
+        #region Logout
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
+        #endregion Logout
     }
 }

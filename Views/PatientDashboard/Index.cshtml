@@ -1,9 +1,12 @@
-﻿@{
+﻿@using static HalloDoc.Controllers.PatientDashboardController;
+@{
     Layout = "_LayoutPatientDashboard";
     ViewData["Title"] = "Dashboard";
 }
 
+<!--Partial View for Create New Request-->
 <partial name="../_PartialViews/_PartialCreateNewRequest.cshtml" />
+
 <div class="tab-pane fade show active d-flex justify-content-center" id="nav-tab1" role="tabpanel" aria-labelledby="nav-tab1-tab" tabindex="0">
     <div class="d-flex flex-column align-self-center m-2 w-75 medicalHistory">
         <strong class="fs-4">
@@ -14,6 +17,8 @@
                 <i data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-block d-sm-none fa-solid fa-plus text-info border rounded border-info mx-3 mx-xs-2 my-1 p-2"></i>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#createNewRequest" class="d-none d-sm-block shadow-none btn border border-info text-info mx-3  mx-xs-2">Create New Request</button>
             </div>
+
+            <!--Desktop View-->
             <div class="d-none d-sm-block">
                 <table class="table">
                     <thead style="background-color: #e9ecef;">
@@ -28,7 +33,7 @@
                         {
                             <tr>
                                 <td scope="row"> @item.Createddate.ToString("MMM d, yyyy")</td>
-                                <td>@item.Status</td>
+                                <td>@Enum.GetName(typeof(Status), item.Status)</td>
                                 <td>
                                     @{
                                         if (ViewBag.docidlist.Contains(item.Requestid))
@@ -50,6 +55,9 @@
                     </tbody>
                 </table>
             </div>
+            <!--End Desktop View-->
+
+            <!--Mobile screen view-->
             <div class="d-block d-sm-none">
                 @foreach (var item in ViewBag.list)
                 {
@@ -72,7 +80,7 @@
                                     <div class="mb-3">
                                         <i class="fa-solid fa-check text-info border border-info rounded-circle p-2"></i>
                                         <strong class="px-1">Current Status : </strong>
-                                        @item.Status
+                                        @Enum.GetName(typeof(Status), item.Status)
                                     </div>
                                     <div>
                                         @{
@@ -91,6 +99,7 @@
                     </div>
                 }
             </div>
+            <!--End Mobile screen view-->
         </div>
     </div>
 </div>

@@ -12,20 +12,27 @@ namespace HalloDoc.Controllers
         {
             _logger = logger;
         }
+
+        #region Index
         public IActionResult Index()
         {
             return View();
         }
+        #endregion Index
 
+        #region PatientLoginPage
         public IActionResult PatientLoginPage()
         {
             return View();
         }
+        #endregion PatientLoginPage
 
+        #region ResetPassword
         public IActionResult ResetPassword()
         {
             return View();
-        }        
+        }
+        #endregion ResetPassword
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

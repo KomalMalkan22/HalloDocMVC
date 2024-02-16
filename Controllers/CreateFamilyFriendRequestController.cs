@@ -6,6 +6,7 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
+    [CheckAccess]
     public class CreateFamilyFriendRequestController : Controller
     {
         private readonly HalloDocContext _context;
@@ -14,10 +15,15 @@ namespace HalloDoc.Controllers
         {
             _context = context;
         }
+
+        #region Index
         public IActionResult Index()
         {
             return View("../Request/CreateFamilyFriendRequest");
         }
+        #endregion Index
+
+        #region Create
         [HttpPost]
         public async Task<IActionResult> Create(CreateFamilyFriendRequestModel createFamilyFriendRequest)
         {
@@ -82,5 +88,6 @@ namespace HalloDoc.Controllers
             }
             return View("../Request/SubmitRequestScreen");
         }
+        #endregion Create
     }
 }

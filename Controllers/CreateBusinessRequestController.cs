@@ -6,14 +6,17 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
+    [CheckAccess]
     public class CreateBusinessRequestController : Controller
     {
         private readonly HalloDocContext _context;
-
+        
         public CreateBusinessRequestController(HalloDocContext context)
         {
             _context = context;
-        }
+        }        
+
+        #region Create
         [HttpPost]
         public async Task<IActionResult> Create(CreateBusinessRequestModel createBusinessRequest)
         {
@@ -71,9 +74,13 @@ namespace HalloDoc.Controllers
 
             return View("../Request/SubmitRequestScreen");
         }
+        #endregion Create
+
+        #region Index
         public IActionResult Index()
         {
             return View("../Request/CreateBusinessRequest");
         }
+        #endregion Index
     }
 }

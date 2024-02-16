@@ -7,6 +7,7 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
+    [CheckAccess]
     public class CreatePatientRequestController : Controller
     {
         private readonly HalloDocContext _context;
@@ -15,6 +16,8 @@ namespace HalloDoc.Controllers
         {
             _context = context;
         }
+
+        #region Create
         [HttpPost]
         public async Task<IActionResult> Create(CreatePatientRequestModel createPatientRequest)
         {
@@ -111,6 +114,9 @@ namespace HalloDoc.Controllers
             return View("../Request/SubmitRequestScreen");
 
         }
+        #endregion Create
+
+        #region CheckEmail
         [HttpPost]
         public async Task<IActionResult> CheckEmailAsync(string email)
         {
@@ -129,10 +135,13 @@ namespace HalloDoc.Controllers
                 isAspnetuser = aspnetuser == null
             });
         }
+        #endregion CheckEmail
 
+        #region Index
         public IActionResult Index()
         {
             return View("../Request/CreatePatientRequest");
         }
+        #endregion Index
     }
 }

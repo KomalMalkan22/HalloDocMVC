@@ -5,6 +5,7 @@ namespace HalloDoc.Controllers
 {
     public class CheckAccess : ActionFilterAttribute, IAuthorizationFilter
     {
+        #region OnAuthorization
         public void OnAuthorization(AuthorizationFilterContext filterContext)
         {
             var rd = filterContext.RouteData;
@@ -14,10 +15,12 @@ namespace HalloDoc.Controllers
 
             if(filterContext.HttpContext.Session.GetString("UserID") == null)
             {
-                filterContext.Result = new RedirectResult("~/Login/");
+                filterContext.Result = new RedirectResult("~/UserLogin/");
             }
         }
+        #endregion OnAuthorization
 
+        #region OnResultExecuting
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             filterContext.HttpContext.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
@@ -25,5 +28,6 @@ namespace HalloDoc.Controllers
             filterContext.HttpContext.Response.Headers["Pragma"] = "no-cache";
             base.OnResultExecuting(filterContext);
         }
+        #endregion OnResultExecuting
     }
 }

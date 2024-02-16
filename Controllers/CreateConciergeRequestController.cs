@@ -6,6 +6,7 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
+    [CheckAccess]
     public class CreateConciergeRequestController : Controller
     {
         private readonly HalloDocContext _context;
@@ -14,10 +15,16 @@ namespace HalloDoc.Controllers
         {
             _context = context;
         }
+
+        #region Index
         public IActionResult Index()
         {
             return View("../Request/CreateConciergeRequest");
         }
+        #endregion Index
+
+        #region Create
+        [HttpPost]
         public async Task<IActionResult> Create(CreateConciergeRequestModel createConciergeRequest)
         {
             var concierge = new Concierge
@@ -74,5 +81,6 @@ namespace HalloDoc.Controllers
 
             return View("../Request/SubmitRequestScreen");
         }
+        #endregion Create
     }
 }
