@@ -52,7 +52,7 @@ i.fa.fa-eye {
 }
 
 .wrapper {
-    background-image: url(../images/11116016_415.jpg);
+    background-image: url('../images/11116016_415.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -60,7 +60,7 @@ i.fa.fa-eye {
 }
 
 #rightDiv {
-    backdrop-filter: blur(8px) saturate(180%);
+    backdrop-filter: blur(3px) saturate(180%);
     -webkit-backdrop-filter: blur(8px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 12px;
