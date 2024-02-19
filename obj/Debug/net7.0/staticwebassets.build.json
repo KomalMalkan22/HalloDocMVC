@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OH5uLPO8BOvOJcdLH4pCSc3IkzF1ZmCaZcaKKpdAK+M=",
+  "Hash": "7x6Hlw3NR9ydhFSnTtwgXsNee7S0HOTxGssOQKQUCzI=",
   "Source": "HalloDoc",
   "BasePath": "_content/HalloDoc",
   "Mode": "Default",
@@ -1207,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\Upload\\Demo.html"
     },
     {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\HalloDoc - DB.xlsx",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/HalloDoc - DB.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\HalloDoc - DB.xlsx"
+    },
+    {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Komal_HalloDocDB.sql",
       "SourceId": "HalloDoc",
       "SourceType": "Discovered",
@@ -1239,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Upload\\Plan_till_1Feb2024.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Screenshot (2) (1).png",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/Screenshot (2) (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Screenshot (2) (1).png"
     },
     {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Screenshot (2).png",

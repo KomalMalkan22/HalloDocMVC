@@ -5,7 +5,6 @@
 
 @model CreatePatientRequestModel
 
-<partial name="../_PartialViews/_PartialConfirmationModel.cshtml" />
 <div class="d-flex flex-column align-self-center m-3">
     <div class="d-flex flex-column align-self-center m-3">
         <div class="d-flex justify-content-end pe-2">
@@ -71,9 +70,10 @@
                         <div class="form-floating mb-3">
                             <input asp-for="ConfirmPassword" type="password" class="form-control shadow-none" id="confirm_pwd" placeholder="Confirm Password">
                             <label for="confirm_pwd">Confirm Password</label>
-                            <span asp-validation-for="ConfirmPassword" class="text-danger fw-bold"></span>
+
                         </div>
                     </div>
+
                     <strong class="text-danger">@ViewData["error"]</strong>
                 </div>
                 
@@ -141,7 +141,8 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+
+<script>
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
         utilsScript:

@@ -6,7 +6,6 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
-    [CheckAccess]
     public class CreateFamilyFriendRequestController : Controller
     {
         private readonly HalloDocContext _context;

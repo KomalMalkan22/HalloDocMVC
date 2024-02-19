@@ -7,7 +7,6 @@ using System.Collections;
 
 namespace HalloDoc.Controllers
 {
-    [CheckAccess]
     public class CreatePatientRequestController : Controller
     {
         private readonly HalloDocContext _context;

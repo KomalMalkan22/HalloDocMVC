@@ -2,7 +2,6 @@
 
 namespace HalloDoc.Controllers
 {
-    [CheckAccess]
     public class RequestController : Controller
     {
         #region SubmitRequestScreen
