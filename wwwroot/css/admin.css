@@ -1,0 +1,100 @@
+﻿/* Admin Dashboard */
+
+.offcanvas {
+    width: 50%;
+}
+
+.new {
+    border: solid thin #063982;
+    color: #063982;
+    background-color: #CFE2FF;
+}
+
+.pending {
+    border: solid thin #0AA2C0;
+    color: #0AA2C0;
+    background-color: #D1F7FF;
+}
+
+.active {
+    border: solid thin #198754;
+    color: #198754;
+    background-color: #E0F7ED;
+}
+
+.conclude {
+    border: solid thin #AB296A;
+    color: #AB296A;
+    background-color: #FFDDED;
+}
+
+.toClose {
+    border: solid thin #0A58CA;
+    color: #0A58CA;
+    background-color: #CFE2FF;
+}
+
+.unpaid {
+    border: solid thin #8C68CD;
+    color: #8C68CD;
+    background-color: #E2D9F3;
+}
+
+.search {
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+}
+
+    .search input {
+        height: 50px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+    }
+
+        .search input:focus {
+            box-shadow: none;
+            border: 2px solid #0dcaf0;
+        }
+
+    .search .fa-search {
+        position: absolute;
+        top: 20px;
+        left: 16px;
+    }
+
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchPatientRegion {
+    display: inline-flex;
+}
+
+.requestType {
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width : 925px) {
+    .searchBar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .requestType {
+        display: flex;
+        justify-content: start;
+    }
+
+    .adminIcon {
+        display: none;
+    }
+}
+
+@media (max-width : 425px) {
+    .searchPatientRegion {
+        display: flex;
+        flex-direction: column;
+    }
+}

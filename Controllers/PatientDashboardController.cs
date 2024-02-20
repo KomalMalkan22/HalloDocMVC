@@ -36,6 +36,7 @@ namespace HalloDoc.Controllers
         }
 
         #region Index
+        [Route("PatientDashboard/Index")]
         public async Task<IActionResult> Index()
         {
             if (CV.UserID() != null)
@@ -58,6 +59,16 @@ namespace HalloDoc.Controllers
                     }
                     ViewBag.docidlist = ids;
                     ViewBag.list = Request;
+
+                    // Get the list of documents for each request
+                    var docList = _context.Requestwisefiles.ToList();
+
+                    // Group the documents by request id and count them
+                    var docCount = docList.GroupBy(d => d.Requestid)
+                                          .ToDictionary(g => g.Key, g => g.Count());
+
+                    // Store the dictionary in the ViewBag
+                    ViewBag.docCount = docCount;
 
                 }
                 return View();
@@ -113,9 +124,12 @@ namespace HalloDoc.Controllers
         }
         #endregion UploadDocuments
 
+        #region ReviewAgreement
+
         public IActionResult ReviewAgreement()
         {
             return View("../PatientDashboard/ReviewAgreement");
         }
+        #endregion ReviewAgreement
     }
 }

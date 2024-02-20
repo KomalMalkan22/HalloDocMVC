@@ -34,7 +34,7 @@
                             <button type="button" id="choosenfile" class="col btn text-start text-secondary" onclick="document.getElementById('files').click()">
                                 Select File
                             </button>
-                            <input id="files" type="file" class="d-none form-control doc_uploder" name="UploadFile">
+                            <input id="files" type="file" class="d-none form-control doc_uploder" name="UploadFile" multiple>
                             <input name="Requestid" value="@item.Requestid" class="d-none" />
                             <button type="submit" class="btn btn-info text-white py-2" value="Upload">
                                 <i class="fa fa-cloud-upload"></i>
@@ -172,6 +172,19 @@
         }
     }
 </script>
+@*<script>
+    $("#files").change(function () {
+        var filenames = "";
+        var numfiles = this.files.length;
+        for (var i = 0; i < numfiles; i++) {
+            filenames += this.files[i].name + ", ";
+        }
+        console.log(filenames);
+        $("#choosenfile").text(filenames);
+    });
+
+</script>*@
+
 <script>
     $("#files").change(function () {
         filename = this.files[0].name;

@@ -1,0 +1,196 @@
+﻿@{
+    Layout = "_LayoutAdminDashboard";
+}
+
+<div class="bg-light">
+    <div class="row p-2" style="--bs-gutter-x: 0rem;">
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded new ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>NEW</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+                                      
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded pending ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>PENDING</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+                                      
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded active ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>ACTIVE</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+                                      
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded conclude ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>CONCLUDE</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+                                      
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded toClose ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>TO CLOSE</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+                                      
+        <div class="btn col-4 col-md-2 text-start">
+            <div class="p-1 rounded unpaid ps-3">
+                <div class="d-flex flex-column">
+                    <span><small>UNPAID</small></span>
+                    <span class="h4 fw-bold">12345</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mx-1">
+        <div>
+            <strong class="fs-4">Patients</strong> <small>(Status)</small>
+        </div>
+        <div>
+            <button class="btn btn-info text-white shadow-none mb-2">
+                <small>
+                    <i class="bi bi-send"></i>
+                    <span class="adminIcon">Send Link</span>
+                </small>                
+            </button>
+            <button class="btn btn-info text-white shadow-none mb-2">
+                <small>
+                    <i class="bi bi-file-earmark-plus"></i>
+                    <span class="adminIcon">Create Requests</span>
+                </small>                
+            </button>
+            <button class="btn btn-info text-white shadow-none mb-2">
+                <small>
+                    <i class="fa-solid fa-share"></i>
+                    <span class="adminIcon">Export</span>
+                </small>                
+            </button>
+            <button class="btn btn-info text-white shadow-none mb-2">
+                <small>
+                    <i class="fa-solid fa-share-from-square"></i>
+                    <span class="adminIcon">Export All</span>
+                </small>                
+            </button>
+            <button class="btn btn-info text-white shadow-none mb-2">
+                <small>
+                    <i class="fa-solid fa-user-nurse"></i>
+                    <span class="adminIcon">Request DIY Support</span>
+                </small>                
+            </button>
+        </div>
+    </div>
+
+    <div class="mt-2 mx-2 bg-white">
+        <div class="searchBar px-2">
+           <div class="searchPatientRegion py-2">
+                <div class="search m-1">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Search Patients">
+                </div>
+                <div class="search m-1">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="All Regions">
+                </div>
+           </div>
+           <div class="requestType">
+               <div class="me-3">
+                    <i class="fa-solid fa-circle fa-xs text-success"></i>
+                    <small>Patient</small>
+               </div>
+               <div class="me-3">
+                    <i class="fa-solid fa-circle fa-xs text-warning"></i>
+                    <small>Family / Friend</small>
+               </div>
+               <div class="me-3">
+                    <i class="fa-solid fa-circle fa-xs text-danger"></i>
+                    <small>Business</small>
+               </div>
+               <div class="me-2">
+                    <i class="fa-solid fa-circle fa-xs text-info"></i>
+                    <small>Concierge</small>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <div class="table-responsive m-2 ">
+        <table class="w-100">
+            <thead style="height:50px;">
+                <tr>
+                    <th scope="col">
+                        <small>Name</small>
+                    </th>
+                    <th scope="col">
+                        <small>Date Of Birth</small>
+                    </th>
+                    <th scope="col">
+                        <small>Requestor</small>
+                    </th>
+                    <th scope="col">
+                        <small>Physician Name</small>
+                    </th>
+                    <th scope="col">
+                        <small>Date Of Service</small>
+                    </th>
+                    <th scope="col">
+                        <small>Phone</small>
+                    </th>
+                    <th scope="col">
+                        <small>Address</small>
+                    </th>
+                    <th scope="col">
+                        <small>Notes</small>
+                    </th>
+                    <th scope="col">
+                        <small>Chat With</small>
+                    </th>
+                    <th scope="col">
+                        <small>Actions</small>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr class="bg-success text-white">
+                    <td><small>testP, testP</small></td>
+                    <td><small>Jun 24, 1988</small></td>
+                    <td><small>Patient testP, testP</small></td>
+                    <td><small>Dr. Agola</small></td>
+                    <td><small>Oct 11, 2023</small></td>
+                    <td><small>9876543210</small></td>
+                    <td><small>123, maryland 20810</small></td>
+                    <td><small>Admin transferred to Dr. AGOLA</small></td>
+                    <td>
+                        <button class="btn border border-white text-white my-2">
+                            <small>Patient</small>
+                        </button>
+                        <button class="btn border border-white text-white my-2">
+                            <small>Provider</small>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn border border-white text-white my-2">
+                            <small>Actions</small>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

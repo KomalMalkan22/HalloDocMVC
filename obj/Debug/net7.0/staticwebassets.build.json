@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7x6Hlw3NR9ydhFSnTtwgXsNee7S0HOTxGssOQKQUCzI=",
+  "Hash": "LkxabEmlS0z0ElogX1tPSegDSN+VYkkEi3RjuRIMHT4=",
   "Source": "HalloDoc",
   "BasePath": "_content/HalloDoc",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HalloDoc.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\css\\admin.css",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\css\\bootstrap.min.css",
@@ -119,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\images\\11116016_415.jpg",
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\images\\11116016_415.png",
       "SourceId": "HalloDoc",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
       "BasePath": "_content/HalloDoc",
-      "RelativePath": "images/11116016_415.jpg",
+      "RelativePath": "images/11116016_415.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,7 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\11116016_415.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\11116016_415.png"
     },
     {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\images\\Fig56. Patient site 1.png",
@@ -1190,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\Upload\\.net-Whole-Plane-2024.pdf"
     },
     {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\11116016_415.png",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/11116016_415.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\11116016_415.png"
+    },
+    {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Demo.html",
       "SourceId": "HalloDoc",
       "SourceType": "Discovered",
@@ -1205,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Upload\\Demo.html"
+    },
+    {
+      "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\Fig56. Patient site 1.png",
+      "SourceId": "HalloDoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\",
+      "BasePath": "_content/HalloDoc",
+      "RelativePath": "Upload/Fig56. Patient site 1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Fig56. Patient site 1.png"
     },
     {
       "Identity": "C:\\Users\\pct30\\source\\repos\\HalloDoc\\wwwroot\\Upload\\HalloDoc - DB.xlsx",
