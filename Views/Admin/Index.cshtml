@@ -3,65 +3,83 @@
 }
 
 <div class="bg-light">
-    <div class="row p-2" style="--bs-gutter-x: 0rem;">
+    <div class="row mb-2" style="--bs-gutter-x: 0rem;">
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded new ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>NEW</small></span>
+            <div class="p-1 rounded new">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-circle-plus me-2 align-self-center d-none d-sm-block"></i>
+                    <small>NEW</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
                                       
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded pending ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>PENDING</small></span>
+            <div class="p-1 rounded pending">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-user-clock me-2 align-self-center d-none d-sm-block"></i>
+                    <small>PENDING</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
                                       
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded active ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>ACTIVE</small></span>
+            <div class="p-1 rounded active">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-circle-check me-2 align-self-center d-none d-sm-block"></i>
+                    <small>ACTIVE</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
                                       
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded conclude ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>CONCLUDE</small></span>
+            <div class="p-1 rounded conclude">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-clock-rotate-left me-2 align-self-center d-none d-sm-block"></i>
+                    <small>CONCLUDE</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
                                       
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded toClose ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>TO CLOSE</small></span>
+            <div class="p-1 rounded toClose">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-user-xmark me-2 align-self-center d-none d-sm-block"></i>
+                    <small>TO CLOSE</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
                                       
         <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded unpaid ps-3">
-                <div class="d-flex flex-column">
-                    <span><small>UNPAID</small></span>
+            <div class="p-1 rounded unpaid">
+                <div class="d-inline-flex">
+                    <i class="fa-xs fa-solid fa-circle-dollar-to-slot me-2 align-self-center d-none d-sm-block"></i>
+                    <small>UNPAID</small>
+                </div>
+                <div>
                     <span class="h4 fw-bold">12345</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="d-flex justify-content-between mx-1">
+    <div class="d-flex justify-content-between mx-2">
         <div>
-            <strong class="fs-4">Patients</strong> <small>(Status)</small>
+            <strong class="fs-6">Patients</strong> <small>(Status)</small>
         </div>
         <div>
             <button class="btn btn-info text-white shadow-none mb-2">
@@ -106,7 +124,12 @@
                 </div>
                 <div class="search m-1">
                     <i class="fa fa-search"></i>
-                    <input type="text" class="form-control" placeholder="All Regions">
+                    <select class="form-select shadow-none" id="floatingSelectGrid">
+                        <option selected>All Regions</option>
+                        <option value="1">Maryland</option>
+                        <option value="2">New York</option>
+                        <option value="3">Virginia</option>
+                    </select>
                 </div>
            </div>
            <div class="requestType">
@@ -130,7 +153,7 @@
        </div>
     </div>
 
-    <div class="table-responsive m-2 ">
+    <div class="table-responsive m-2 d-none d-md-block">
         <table class="w-100">
             <thead style="height:50px;">
                 <tr>
@@ -185,12 +208,99 @@
                         </button>
                     </td>
                     <td>
-                        <button class="btn border border-white text-white my-2">
+                        <button class="btn border border-white text-white my-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <small>Actions</small>
-                        </button>
+                        </button>                        
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-text"></i> View Case</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-card-checklist"></i> View Uploads</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-journals"></i> View Notes</a></li>
+                        </ul>
+                        
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="accordion mt-3 d-block d-md-none" id="accordionExample">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <div class="container-fluid accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="row w-100">
+                        <div class="col-6 mb-3">
+                            Patient Name
+                        </div>
+                        <div class="col-6 mb-3">
+                            Patient<i class="fa-solid fa-circle fa-xs ms-2 text-success"></i>
+                        </div>
+                        <div class="col-6">
+                            Address
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-white border-info text-info rounded-pill 2px">
+                                <small>Map Location</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse show mb-5" data-bs-parent="#accordionExample">
+                <div class="accordion-body container-fluid">
+                    <p>Date of Birth:</p>
+                    <p>Email : </p>
+                    <p>Patient : </p>
+                    <p>Transfer Notes : </p>
+                    <p>Date of service : </p>
+                    <p>Physician : </p>
+                    <p>Requestor : </p>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                <small>View Notes</small>
+                            </button>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <button class="btn btn-success text-white rounded-pill 2px w-100">
+                                <small>Doctors Note</small>
+                            </button>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                <small>View Uploads</small>
+                            </button>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                <small>Encounter</small>
+                            </button>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #FFD43B;">
+                                <small>Orders</small>
+                            </button>
+                        </div>
+                        <div class="col-6 mb-3 ">
+                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                <small>Email</small>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-end d-md-flex justify-content-md-end mb-5">
+                        <span>Chat With:</span>
+                        <button class="btn btn-white border-info text-info me-md-2 mb-2" type="button">
+                            <i class="fa-regular fa-user me-1"></i>
+                            Patient
+                        </button>
+                        <button class="btn btn-white border-info text-info mb-2" type="button">
+                            <i class="fa-solid fa-user-doctor me-1"></i>
+                            Provider
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

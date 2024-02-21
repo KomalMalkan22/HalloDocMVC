@@ -20,7 +20,7 @@ namespace HalloDoc.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreatePatientRequestModel createPatientRequest)
         {
-            if(ModelState.IsValid) {
+                var User = new User();
                 var isUserExist = _context.Users.FirstOrDefault(x => x.Email == createPatientRequest.Email);
 
                 if (isUserExist == null)
@@ -28,11 +28,11 @@ namespace HalloDoc.Controllers
                     Guid g = Guid.NewGuid();
                     var aspnetuser = new Aspnetuser()
                     {
-
                         Id = g.ToString(),
                         Username = createPatientRequest.FirstName,
                         Passwordhash = createPatientRequest.PassWord,
                         Email = createPatientRequest.Email,
+                        Phonenumber = createPatientRequest.PhoneNumber,
                         CreatedDate = DateTime.Now
                     };
                     _context.Aspnetusers.Add(aspnetuser);
@@ -44,13 +44,22 @@ namespace HalloDoc.Controllers
                         Firstname = createPatientRequest.FirstName,
                         Lastname = createPatientRequest.LastName,
                         Email = createPatientRequest.Email,
+                        Mobile = createPatientRequest.PhoneNumber,
+                        Street = createPatientRequest.Street,
+                        City = createPatientRequest.City,
+                        State = createPatientRequest.State,
+                        Zipcode = createPatientRequest.ZipCode,
+                        Strmonth = createPatientRequest.DateOfBirth.ToString("MMMM"),
+                        Intdate = createPatientRequest.DateOfBirth.Day,
+                        Intyear = createPatientRequest.DateOfBirth.Year,
                         Createdby = aspnetuser.Id,
                         Createddate = DateTime.Now
                     };
+                    User = user;
                     _context.Users.Add(user);
                     await _context.SaveChangesAsync();
                 }
-                var User = new User();
+                
 
                 var request = new Request()
                 {
@@ -73,6 +82,9 @@ namespace HalloDoc.Controllers
                     Firstname = createPatientRequest.FirstName,
                     Lastname = createPatientRequest.LastName,
                     Street = createPatientRequest.Street,
+                    City = createPatientRequest.City,
+                    State = createPatientRequest.State,
+                    Zipcode = createPatientRequest.ZipCode,
                     Email = createPatientRequest.Email,
                     Phonenumber = createPatientRequest.PhoneNumber,
                     Notes = createPatientRequest.Symptoms,
@@ -109,13 +121,8 @@ namespace HalloDoc.Controllers
                     };
                     _context.Requestwisefiles.Add(requestwisefile);
                     _context.SaveChanges();
-                }                
-            }
-            else
-            {
-                return View("../Request/SubmitRequestScreen", createPatientRequest);
-            }
-            return RedirectToAction("Index", "PatientDashboard");
+                }
+            return RedirectToAction("SubmitRequestScreen", "Request");
         }
         #endregion Create
 

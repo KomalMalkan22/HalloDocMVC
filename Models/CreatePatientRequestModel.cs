@@ -18,9 +18,10 @@ namespace HalloDoc.Models
         public string PassWord { get; set; }
         [Compare("PassWord", ErrorMessage = "Password and confirm password must match")]
         public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Date of birth is required")]
         public DateTime DateOfBirth { get; set; }
         [Required(ErrorMessage = "Contact number is required")]
-        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"([0-9]{10})", ErrorMessage = "Please enter 10 digits for a contact number")]
         public string PhoneNumber { get; set; }
         public string FF_RelationWithPatient { get; set; }
         [Required(ErrorMessage = "Street is required")]
@@ -29,7 +30,7 @@ namespace HalloDoc.Models
         public string City { get; set; }
         [Required(ErrorMessage = "State is required")]
         public string State { get; set; }
-        [Required(ErrorMessage = "ZipCode is required")]
+        [Required(ErrorMessage = "Zip Code is required")]
         public string ZipCode { get; set; }
         public string RoomSuite { get; set; }
         public string? UploadImage { get; set; }
