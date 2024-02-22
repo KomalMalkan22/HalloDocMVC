@@ -1,0 +1,15 @@
+﻿namespace HalloDoc.Models
+{
+    public class AdminDashboardList
+    {
+        public string PatientName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int RequestTypeId { get; set; }
+        public string Requestor { get; set; }
+        public DateTime RequestedDate { get; set; }
+        public string PatientPhoneNumber { get; set; }
+        public string RequestorPhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string Notes { get; set; }
+    }
+}

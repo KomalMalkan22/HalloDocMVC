@@ -2,81 +2,87 @@
     Layout = "_LayoutAdminDashboard";
 }
 
-<div class="bg-light">
-    <div class="row mb-2" style="--bs-gutter-x: 0rem;">
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded new">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-circle-plus me-2 align-self-center d-none d-sm-block"></i>
-                    <small>NEW</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-                                      
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded pending">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-user-clock me-2 align-self-center d-none d-sm-block"></i>
-                    <small>PENDING</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-                                      
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded active">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-circle-check me-2 align-self-center d-none d-sm-block"></i>
-                    <small>ACTIVE</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-                                      
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded conclude">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-clock-rotate-left me-2 align-self-center d-none d-sm-block"></i>
-                    <small>CONCLUDE</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-                                      
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded toClose">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-user-xmark me-2 align-self-center d-none d-sm-block"></i>
-                    <small>TO CLOSE</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-                                      
-        <div class="btn col-4 col-md-2 text-start">
-            <div class="p-1 rounded unpaid">
-                <div class="d-inline-flex">
-                    <i class="fa-xs fa-solid fa-circle-dollar-to-slot me-2 align-self-center d-none d-sm-block"></i>
-                    <small>UNPAID</small>
-                </div>
-                <div>
-                    <span class="h4 fw-bold">12345</span>
-                </div>
-            </div>
-        </div>
-    </div>
+@model HalloDoc.Models.CountStatusWiseRequestModel
+@using static HalloDoc.Controllers.AdminController;
 
+<div class="bg-light">
+    <!--Status of requests-->
+    <div class="row mb-2" style="--bs-gutter-x: 0rem;">
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded new ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-circle-plus me-2 align-self-center d-none d-sm-block"></i>
+                    NEW
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.NewRequest</span>
+                </div>
+            </div>
+        </button>
+                                      
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded pending ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-user-clock me-2 align-self-center d-none d-sm-block"></i>
+                    PENDING
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.PendingRequest</span>
+                </div>
+            </div>
+        </button>
+                                      
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded active ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-circle-check me-2 align-self-center d-none d-sm-block"></i>
+                    ACTIVE
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.ActiveRequest</span>
+                </div>
+            </div>
+        </button>
+                                      
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded conclude ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-clock-rotate-left me-2 align-self-center d-none d-sm-block"></i>
+                    CONCLUDE
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.ConcludeRequest</span>
+                </div>
+            </div>
+        </button>
+                                      
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded toClose ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-user-xmark me-2 align-self-center d-none d-sm-block"></i>
+                    TO CLOSE
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.ToCloseRequest</span>
+                </div>
+            </div>
+        </button>
+                                      
+        <button class="btn col-4 col-md-2 text-start shadow-none">
+            <div class="p-1 rounded unpaid ps-2 pt-3">
+                <div class="d-inline-flex">
+                    <i class="fa-solid fa-circle-dollar-to-slot me-2 align-self-center d-none d-sm-block"></i>
+                    UNPAID
+                </div>
+                <div class="mt-2">
+                    <span class="h4 fw-bold">@Model.UnpaidRequest</span>
+                </div>
+            </div>
+        </button>
+    </div>
+    <!--End Status of requests-->
+
+    <!--Important links-->
     <div class="d-flex justify-content-between mx-2">
         <div>
             <strong class="fs-6">Patients</strong> <small>(Status)</small>
@@ -114,7 +120,9 @@
             </button>
         </div>
     </div>
+    <!--End Important links-->
 
+    <!--Searchbar-->
     <div class="mt-2 mx-2 bg-white">
         <div class="searchBar px-2">
            <div class="searchPatientRegion py-2">
@@ -152,8 +160,10 @@
            </div>
        </div>
     </div>
+    <!--End Searchbar-->
 
-    <div class="table-responsive m-2 d-none d-md-block">
+    <!--Desktop Screen View of table-->
+    <div class="table-responsive m-2 d-none d-sm-block">
         <table class="w-100">
             <thead style="height:50px;">
                 <tr>
@@ -190,40 +200,56 @@
                 </tr>
             </thead>
             <tbody class="bg-white">
-                <tr class="bg-success text-white">
-                    <td><small>testP, testP</small></td>
-                    <td><small>Jun 24, 1988</small></td>
-                    <td><small>Patient testP, testP</small></td>
-                    <td><small>Dr. Agola</small></td>
-                    <td><small>Oct 11, 2023</small></td>
-                    <td><small>9876543210</small></td>
-                    <td><small>123, maryland 20810</small></td>
-                    <td><small>Admin transferred to Dr. AGOLA</small></td>
-                    <td>
-                        <button class="btn border border-white text-white my-2">
-                            <small>Patient</small>
-                        </button>
-                        <button class="btn border border-white text-white my-2">
-                            <small>Provider</small>
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn border border-white text-white my-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <small>Actions</small>
-                        </button>                        
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-text"></i> View Case</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-card-checklist"></i> View Uploads</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-journals"></i> View Notes</a></li>
-                        </ul>
-                        
-                    </td>
-                </tr>
+                @foreach(var item in Model.adminDashboardList)
+                {
+                    <tr class="bg-success text-white">
+                        <td><small>@item.PatientName</small></td>
+                        <td><small>@item.DateOfBirth.ToString("MMM d , yyyy")</small></td>
+                        <td><small>@item.Requestor</small></td>
+                        <td><small>Dr. Agola</small></td>
+                        <td><small>@item.RequestedDate.ToString("MMM d , yyyy")</small></td>
+                        <td>
+                            <button class="btn border border-white text-white mt-2">
+                                <i class="fa-solid fa-phone"></i>
+                                <small>@item.PatientPhoneNumber</small>
+                            </button>
+                            
+                            <div>
+                                <small>
+                                    (@Enum.GetName(typeof(RequestType), item.RequestTypeId))
+                                </small>
+                            </div>
+                        </td>
+                        <td><small>@item.Address</small></td>
+                        <td><small>Admin transferred to Dr. AGOLA</small></td>
+                        <td>
+                            <button class="btn border border-white text-white my-2">
+                                <small>Patient</small>
+                            </button>
+                            <button class="btn border border-white text-white my-2">
+                                <small>Provider</small>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn border border-white text-white my-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small>Actions</small>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-journal-text"></i> View Case</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-card-checklist"></i> View Uploads</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-journals"></i> View Notes</a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
+    <!--End Desktop Screen View of table-->
 
-    <div class="accordion mt-3 d-block d-md-none" id="accordionExample">
+    <!--Mobile Screen View of table-->
+    <div class="accordion mt-3 d-block d-sm-none" id="accordionExample">
         <div class="accordion-item">
             <div class="accordion-header">
                 <div class="container-fluid accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -303,4 +329,6 @@
             </div>
         </div>
     </div>
+    <!--End Mobile Screen View of table-->
+
 </div>

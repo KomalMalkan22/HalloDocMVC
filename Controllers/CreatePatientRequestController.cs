@@ -130,16 +130,7 @@ namespace HalloDoc.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckEmailAsync(string email)
         {
-            string message;
             var aspnetuser = await _context.Aspnetusers.FirstOrDefaultAsync(m => m.Email == email);
-            if (aspnetuser == null)
-            {
-                message = "False";
-            }
-            else
-            {
-                message = "Success";
-            }
             return Json(new
             {
                 isAspnetuser = aspnetuser == null

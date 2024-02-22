@@ -8,36 +8,72 @@
     border: solid thin #063982;
     color: #063982;
     background-color: #CFE2FF;
+    height:100px;
+}
+
+.new:hover {
+    background-color: #063982;
+    color: white;
 }
 
 .pending {
     border: solid thin #0AA2C0;
     color: #0AA2C0;
     background-color: #D1F7FF;
+    height: 100px;
+}
+
+.pending:hover {
+    background-color: #0AA2C0;
+    color: white;
 }
 
 .active {
     border: solid thin #198754;
     color: #198754;
     background-color: #E0F7ED;
+    height: 100px;
+}
+
+.active:hover {
+    background-color: #198754;
+    color: white;
 }
 
 .conclude {
     border: solid thin #AB296A;
     color: #AB296A;
     background-color: #FFDDED;
+    height: 100px;
+}
+
+.conclude:hover {
+    background-color: #AB296A;
+    color: white;
 }
 
 .toClose {
     border: solid thin #0A58CA;
     color: #0A58CA;
     background-color: #CFE2FF;
+    height: 100px;
+}
+
+.toClose:hover {
+    background-color: #0A58CA;
+    color: white;
 }
 
 .unpaid {
     border: solid thin #8C68CD;
     color: #8C68CD;
     background-color: #E2D9F3;
+    height: 100px;
+}
+
+.unpaid:hover {
+    background-color: #8C68CD;
+    color: white;
 }
 
 .search {

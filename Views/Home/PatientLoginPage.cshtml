@@ -6,6 +6,8 @@
     ViewData["Title"] = "Login Page";
 }
 
+@model HalloDoc.DataModels.Aspnetuser
+
 <div class="align-self-center w-sm-50">
     <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
         <strong class="text-info">
@@ -21,6 +23,7 @@
             <button type="button" class="btn btn-light">
                 <i class="icon fa-solid fa-user field-icon position-relative"></i>
             </button>
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="form-floating mb-4 password">
             <input name="Passwordhash" type="password" class="form-control shadow-none eyehide " id="floatingPassword" placeholder="Password">
@@ -29,6 +32,7 @@
                 <i class="showImg fa fa-eye-slash"></i>
                 <i class="fa fa-eye"></i>
             </button>
+            <span asp-validation-for="Passwordhash" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-info text-white w-100 mb-4" role="button">Login</button>
     </form>

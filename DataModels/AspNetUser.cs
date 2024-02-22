@@ -20,10 +20,13 @@ public partial class Aspnetuser
 
     [Column("passwordhash")]
     [StringLength(255)]
+    [Required(ErrorMessage = "Password is required")]
     public string? Passwordhash { get; set; }
 
     [Column("email")]
     [StringLength(256)]
+    [Required(ErrorMessage = "Email is required")]
+    [EmailAddress(ErrorMessage = "Invalid Email Address")]
     public string? Email { get; set; }
 
     [Column("phonenumber")]

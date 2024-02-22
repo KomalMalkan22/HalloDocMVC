@@ -28,21 +28,21 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="FirstName" placeholder="Enter First Name">
+                            <input asp-for="FirstName" type="text" class="form-control shadow-none" id="FirstName" placeholder="Enter First Name" autocomplete="off">
                             <label for="FirstName">First Name</label>
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="LastName" placeholder="Enter Last Name">
+                            <input asp-for="LastName" type="text" class="form-control shadow-none" id="LastName" placeholder="Enter Last Name" autocomplete="off">
                             <label for="LastName">Last Name</label>
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="DateOfBirth" placeholder="Enter Date of Birth">
+                            <input asp-for="DateOfBirth" type="date" class="form-control shadow-none" id="DateOfBirth" placeholder="Enter Date of Birth" autocomplete="off">
                             <label for="DateOfBirth">Date of Birth</label>
                             <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                         </div>
@@ -55,28 +55,28 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" placeholder="name@example.com">
+                            <input asp-for="Email" type="email" id="email" class="form-control shadow-none" placeholder="name@example.com" autocomplete="off">
                             <label for="email">Email</label>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 phone">
                         <div class="form-floating mb-3 h-100">
-                            <input asp-for="PhoneNumber" type="tel" class="form-control shadow-none" id="phone">
+                            <input asp-for="PhoneNumber" type="tel" class="form-control shadow-none" id="phone" autocomplete="off">
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
 
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" id="password" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="pwd" placeholder="Password">
+                            <input asp-for="PassWord" type="password" class="form-control shadow-none" id="pwd" placeholder="Password" autocomplete="off">
                             <label for="pwd">Password</label>
                             <span asp-validation-for="PassWord" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" id="confirmPassword" style="display:none;">
                         <div class="form-floating mb-3">
-                            <input asp-for="ConfirmPassword" type="password" class="form-control shadow-none" id="confirm_pwd" placeholder="Confirm Password">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control shadow-none" id="confirm_pwd" placeholder="Confirm Password" autocomplete="off">
                             <label for="confirm_pwd">Confirm Password</label>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
@@ -89,35 +89,35 @@
                 <div class="row p-2">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="Street" type="text" class="form-control shadow-none" id="Street" placeholder="Enter Street">
+                            <input asp-for="Street" type="text" class="form-control shadow-none" id="Street" placeholder="Enter Street" autocomplete="off">
                             <label for="Street">Street</label>
                             <span asp-validation-for="Street" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="City" type="text" class="form-control shadow-none" id="City" placeholder="Enter City">
+                            <input asp-for="City" type="text" class="form-control shadow-none" id="City" placeholder="Enter City" autocomplete="off">
                             <label for="City">City</label>
                             <span asp-validation-for="City" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="State" type="text" class="form-control shadow-none" id="State" placeholder="Enter State">
+                            <input asp-for="State" type="text" class="form-control shadow-none" id="State" placeholder="Enter State" autocomplete="off">
                             <label for="State">State</label>
                             <span asp-validation-for="State" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="ZipCode" type="text" class="form-control shadow-none" id="ZipCode" placeholder="Enter Zip Code">
+                            <input asp-for="ZipCode" type="text" class="form-control shadow-none" id="ZipCode" placeholder="Enter Zip Code" autocomplete="off">
                             <label for="ZipCode">Zip Code</label>
                             <span asp-validation-for="ZipCode" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-floating mb-3">
-                            <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="RoomSuite" placeholder="Enter Room / Suite">
+                            <input asp-for="RoomSuite" type="text" class="form-control shadow-none" id="RoomSuite" placeholder="Enter Room / Suite" autocomplete="off">
                             <label for="RoomSuite">Room / Suite (Optional)</label>
                         </div>
                     </div>
@@ -159,6 +159,7 @@
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>
+
 <script>
     $(function () {
         $("#email").focusout(function () {
@@ -170,7 +171,7 @@
                 success: function (response) {
                     var flag = response.isAspnetuser;
                     if (flag) {
-                        // Show the username and password fields
+                        // Show the confirm password and password fields
                         $("#confirmPassword").show();
                         $("#password").show();
                     } else {
