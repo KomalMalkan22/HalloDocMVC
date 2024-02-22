@@ -53,8 +53,11 @@ namespace HalloDoc.Controllers
                 Intyear = createFamilyFriendRequest.DateOfBirth.Year,
                 Email = createFamilyFriendRequest.Email,
                 Phonenumber = createFamilyFriendRequest.PhoneNumber,
-                Location = createFamilyFriendRequest.RoomSuite
-                //RoomSuite
+                Location = createFamilyFriendRequest.RoomSuite,
+                Street = createFamilyFriendRequest.Street,
+                City = createFamilyFriendRequest.City,
+                State = createFamilyFriendRequest.State,
+                Zipcode = createFamilyFriendRequest.ZipCode
             };
             _context.Requestclients.Add(requestClient);
             await _context.SaveChangesAsync();

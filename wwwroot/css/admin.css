@@ -6,73 +6,73 @@
 
 .new {
     border: solid thin #063982;
-    color: #063982;
-    background-color: #CFE2FF;
-    height:100px;
+    color: #334585;
+    background-color: #e9eaef;
+    height: 100px;
 }
 
 .new:hover {
-    background-color: #063982;
+    background-color: #203f9a;
     color: white;
 }
 
 .pending {
     border: solid thin #0AA2C0;
-    color: #0AA2C0;
-    background-color: #D1F7FF;
+    color: #70c9e7;
+    background-color: #e5f2f8;
     height: 100px;
 }
 
 .pending:hover {
-    background-color: #0AA2C0;
+    background-color: #00adef;
     color: white;
 }
 
 .active {
     border: solid thin #198754;
-    color: #198754;
-    background-color: #E0F7ED;
+    color: #338038;
+    background-color: #e9f0e8;
     height: 100px;
 }
 
 .active:hover {
-    background-color: #198754;
+    background-color: #228c20;
     color: white;
 }
 
 .conclude {
     border: solid thin #AB296A;
-    color: #AB296A;
-    background-color: #FFDDED;
+    color: #b32379;
+    background-color: #f7e6ee;
     height: 100px;
 }
 
 .conclude:hover {
-    background-color: #AB296A;
+    background-color: #da0f82;
     color: white;
 }
 
 .toClose {
     border: solid thin #0A58CA;
-    color: #0A58CA;
-    background-color: #CFE2FF;
+    color: #246cb3;
+    background-color: #e5eef5;
     height: 100px;
 }
 
-.toClose:hover {
-    background-color: #0A58CA;
-    color: white;
-}
+    .toClose:hover {
+        background-color: #0370d7;
+        color: white;
+    }
 
 .unpaid {
     border: solid thin #8C68CD;
-    color: #8C68CD;
-    background-color: #E2D9F3;
+    color: #956eba;
+    background-color: #efeef4;
     height: 100px;
 }
 
 .unpaid:hover {
-    background-color: #8C68CD;
+    background-color: #9966cd;
     color: white;
 }
 
@@ -114,6 +114,22 @@
 .requestType {
     display: inline-flex;
     align-items: center;
+}
+
+.Patient {
+    background-color: #5fbc61;
+}
+
+.Business {
+    background-color: #cd697b;
+}
+
+.Family {
+    background-color: #ed9124;
+}
+
+.Concierge {
+    background-color: #0a7cb9;
 }
 
 @media (max-width : 925px) {

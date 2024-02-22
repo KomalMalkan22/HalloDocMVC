@@ -55,7 +55,6 @@ namespace HalloDoc.Controllers
 
             var requestClient = new Requestclient
             {
-                Request = request,
                 Requestid = request.Requestid,
                 Notes = createConciergeRequest.Symptoms,
                 Firstname = createConciergeRequest.FirstName,

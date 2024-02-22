@@ -5,7 +5,7 @@
 @model HalloDoc.Models.CountStatusWiseRequestModel
 @using static HalloDoc.Controllers.AdminController;
 
-<div class="bg-light">
+<div class="mx-sm-1 mx-md-2 mx-xxl-4 mt-0 bg-light">
     <!--Status of requests-->
     <div class="row mb-2" style="--bs-gutter-x: 0rem;">
         <button class="btn col-4 col-md-2 text-start shadow-none">
@@ -133,7 +133,7 @@
                 <div class="search m-1">
                     <i class="fa fa-search"></i>
                     <select class="form-select shadow-none" id="floatingSelectGrid">
-                        <option selected>All Regions</option>
+                        <option selected class="text-secondary">All Regions</option>
                         <option value="1">Maryland</option>
                         <option value="2">New York</option>
                         <option value="3">Virginia</option>
@@ -142,19 +142,19 @@
            </div>
            <div class="requestType">
                <div class="me-3">
-                    <i class="fa-solid fa-circle fa-xs text-success"></i>
+                    <i class="fa-solid fa-circle fa-xs" style="color:#5fbc61;"></i>
                     <small>Patient</small>
                </div>
                <div class="me-3">
-                    <i class="fa-solid fa-circle fa-xs text-warning"></i>
+                    <i class="fa-solid fa-circle fa-xs" style="color:#ed9124;"></i>
                     <small>Family / Friend</small>
                </div>
                <div class="me-3">
-                    <i class="fa-solid fa-circle fa-xs text-danger"></i>
+                    <i class="fa-solid fa-circle fa-xs" style="color:#cd697b;"></i>
                     <small>Business</small>
                </div>
                <div class="me-2">
-                    <i class="fa-solid fa-circle fa-xs text-info"></i>
+                    <i class="fa-solid fa-circle fa-xs" style="color:#0a7cb9;"></i>
                     <small>Concierge</small>
                </div>
            </div>
@@ -163,13 +163,14 @@
     <!--End Searchbar-->
 
     <!--Desktop Screen View of table-->
-    <div class="table-responsive m-2 d-none d-sm-block">
+    <div class="table-responsive m-2 mb-5 d-none d-sm-block">
         <table class="w-100">
             <thead style="height:50px;">
                 <tr>
                     <th scope="col">
                         <small>Name</small>
                     </th>
+                    <th></th>
                     <th scope="col">
                         <small>Date Of Birth</small>
                     </th>
@@ -177,10 +178,7 @@
                         <small>Requestor</small>
                     </th>
                     <th scope="col">
-                        <small>Physician Name</small>
-                    </th>
-                    <th scope="col">
-                        <small>Date Of Service</small>
+                        <small>Requested Date</small>
                     </th>
                     <th scope="col">
                         <small>Phone</small>
@@ -199,26 +197,41 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="bg-white">
+            <tbody class="bg-white mb-5">
                 @foreach(var item in Model.adminDashboardList)
                 {
-                    <tr class="bg-success text-white">
+                    <tr class="@Enum.GetName(typeof(RequestType), item.RequestTypeId) text-white border-bottom border-white">
                         <td><small>@item.PatientName</small></td>
-                        <td><small>@item.DateOfBirth.ToString("MMM d , yyyy")</small></td>
+                        <td>
+                            <button class="btn border-white text-white">
+                                <i class="fa-regular fa-envelope"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <small>@item.DateOfBirth.ToString("MMM d , yyyy")</small>
+                        </td>
                         <td><small>@item.Requestor</small></td>
-                        <td><small>Dr. Agola</small></td>
                         <td><small>@item.RequestedDate.ToString("MMM d , yyyy")</small></td>
                         <td>
                             <button class="btn border border-white text-white mt-2">
-                                <i class="fa-solid fa-phone"></i>
+                                <i class="fa-solid fa-phone pe-2"></i>
                                 <small>@item.PatientPhoneNumber</small>
-                            </button>
-                            
+                            </button>                            
                             <div>
-                                <small>
-                                    (@Enum.GetName(typeof(RequestType), item.RequestTypeId))
-                                </small>
+                                <small>(Patient)</small>
                             </div>
+
+                            @if(item.RequestTypeId != 2){
+                                <button class="btn border border-white text-white mt-2">
+                                    <i class="fa-solid fa-phone pe-2"></i>
+                                    <small>@item.RequestorPhoneNumber</small>
+                                </button>
+                                <div>
+                                    <small>
+                                        (@Enum.GetName(typeof(RequestType), item.RequestTypeId))
+                                    </small>
+                                </div>
+                            }
                         </td>
                         <td><small>@item.Address</small></td>
                         <td><small>Admin transferred to Dr. AGOLA</small></td>
@@ -250,85 +263,90 @@
 
     <!--Mobile Screen View of table-->
     <div class="accordion mt-3 d-block d-sm-none" id="accordionExample">
-        <div class="accordion-item">
-            <div class="accordion-header">
-                <div class="container-fluid accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <div class="row w-100">
-                        <div class="col-6 mb-3">
-                            Patient Name
+        
+            @foreach(var item in Model.adminDashboardList)
+            {
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="container-fluid accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#@item.RequestId" aria-expanded="true" aria-controls="collapse_@item.RequestId">
+                        <div class="row w-100">
+                            <div class="col-6 mb-3">
+                                <small>@item.PatientName</small>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <small>(@Enum.GetName(typeof(RequestType), item.RequestTypeId))</small>
+                                <i class="fa-solid fa-circle fa-xs ms-2 text-success"></i>
+                            </div>
+                            <div class="col-6">
+                                @item.Address
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-sm btn-white border-info text-info rounded-pill 2px">
+                                    <small>Map Location</small>
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-6 mb-3">
-                            Patient<i class="fa-solid fa-circle fa-xs ms-2 text-success"></i>
+                    </div>
+                </div>
+                <div id="@item.RequestId" class="accordion-collapse collapse show mb-3 border-bottom" data-bs-parent="#accordionExample">
+                    <div class="accordion-body container-fluid">
+                        <p>Date of Birth: @item.DateOfBirth</p>
+                        <p>Email : @item.Email</p>
+                        <p>Patient : @item.PatientPhoneNumber</p>
+                        <p>Transfer Notes : @item.Notes</p>
+                        <p>Date of service : @item.RequestedDate</p>
+                        <p>Requestor : @item.Requestor</p>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                    <small>View Notes</small>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <button class="btn btn-success text-white rounded-pill 2px w-100">
+                                    <small>Doctors Note</small>
+                                </button>
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                    <small>View Uploads</small>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                    <small>Encounter</small>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #FFD43B;">
+                                    <small>Orders</small>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-3 ">
+                                <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
+                                    <small>Email</small>
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            Address
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-white border-info text-info rounded-pill 2px">
-                                <small>Map Location</small>
+                        <div class="text-end d-md-flex justify-content-md-end">
+                            <span>Chat With:</span>
+                            <button class="btn btn-white border-info text-info me-md-2 mb-2" type="button">
+                                <i class="fa-regular fa-user me-1"></i>
+                                Patient
+                            </button>
+                            <button class="btn btn-white border-info text-info mb-2" type="button">
+                                <i class="fa-solid fa-user-doctor me-1"></i>
+                                Provider
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="collapseOne" class="accordion-collapse collapse show mb-5" data-bs-parent="#accordionExample">
-                <div class="accordion-body container-fluid">
-                    <p>Date of Birth:</p>
-                    <p>Email : </p>
-                    <p>Patient : </p>
-                    <p>Transfer Notes : </p>
-                    <p>Date of service : </p>
-                    <p>Physician : </p>
-                    <p>Requestor : </p>
-
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
-                                <small>View Notes</small>
-                            </button>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <button class="btn btn-success text-white rounded-pill 2px w-100">
-                                <small>Doctors Note</small>
-                            </button>
-                        </div>
-
-                        <div class="col-6 mb-3">
-                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
-                                <small>View Uploads</small>
-                            </button>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
-                                <small>Encounter</small>
-                            </button>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #FFD43B;">
-                                <small>Orders</small>
-                            </button>
-                        </div>
-                        <div class="col-6 mb-3 ">
-                            <button class="btn btn-white text-white rounded-pill 2px w-100" style="background-color: #3ecc4e;">
-                                <small>Email</small>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-end d-md-flex justify-content-md-end mb-5">
-                        <span>Chat With:</span>
-                        <button class="btn btn-white border-info text-info me-md-2 mb-2" type="button">
-                            <i class="fa-regular fa-user me-1"></i>
-                            Patient
-                        </button>
-                        <button class="btn btn-white border-info text-info mb-2" type="button">
-                            <i class="fa-solid fa-user-doctor me-1"></i>
-                            Provider
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            }            
+        
+    
     <!--End Mobile Screen View of table-->
 
 </div>
